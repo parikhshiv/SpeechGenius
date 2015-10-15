@@ -10,6 +10,8 @@ html on first submission, but after that allow it to update to include links*
 
 *need to check out lyrics project to see how to make html safe*
 
+*Order speeches alphabetically or something*
+
 ### Controllers
 
 ### Views

@@ -64,8 +64,13 @@ var SpeechShow = React.createClass({
       selection.anchorOffset : selection.extentOffset;
     var length = selection.toString().length;
     var add_on = text.indexOf(selection.anchorNode.data);
-
-    if (selection.toString() !== text.substring(index, index + length)) {
+    // debugger;
+    if (this._checkForExistingAnnotations(text.substring(index + add_on, index + length + add_on))) {
+      alert("CAN'T ANNOTATE ON TOP OF EXISTING ANNOTATIONS");
+      this.clearAnnotationLink;
+      return;
+    }
+    if (selection.toString() !== text.substring(index + add_on, index + length + add_on)) {
       length += 1;
     }
     array.splice(index + add_on, length,
@@ -73,6 +78,10 @@ var SpeechShow = React.createClass({
        selection.toString() + "</a>" );
     speech.innerHTML = array.join('');
     this.setState({new: true, link: false});
+
+  },
+  _checkForExistingAnnotations: function (selection) {
+    return /<[a-z][\s\S]*>/i.test(selection);
   },
   cancel: function () {
     var speech = document.getElementById('text');

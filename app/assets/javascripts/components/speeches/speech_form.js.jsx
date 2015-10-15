@@ -4,6 +4,10 @@ var SpeechForm = React.createClass({
     return {speaker: null, title: null, content: null};
   },
   handleSubmit: function () {
+    if (/<[a-z][\s\S]*>/i.test(this.state.content)) {
+      alert("NO HTML PLEASE!!!!!!");
+      return;
+    }
     // CHECK FOR MALICIOUS HTML HERE
     if (this._validated()) {
       ApiUtil.createSpeech(this.state, function (speech_id) {
