@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WordGenius</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <link href='https://fonts.googleapis.com/css?family=Fira+Sans:400,500' rel='stylesheet' type='text/css'>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <% if current_user %>
+    <!-- window.CURENT_USER_ID = <%= current_user.id %> -->
+  <% else %>
+    <header>
+        <h1 class="home-page">SPEECHGENIUS</h1>
+    </header>
+    <header class="header-2">
+      <%= link_to "Sign Up", new_user_url, {class: "logout"}%>
+      <%= link_to "Sign In", new_session_url,{class: "new-speech"} %>
+    </header>
+  <% end %>
+
+
+<%= yield %>
+
+<% if flash[:errors] %>
+  <div class="errors">
+    <% flash[:errors].each do |msg| %>
+      <p><b><%= msg %></b></p>
+    <% end %>
+  </div>
+<% end %>
+
+</body>
+</html>

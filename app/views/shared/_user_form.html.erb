@@ -1,0 +1,21 @@
+<% action = (type == :newuser) ? users_url : session_url %>
+<% button_text = (type == :newuser) ? "Create Account" : "Login" %>
+<% header = (type == :newuser) ? "Sign Up" : "Sign In" %>
+
+<div class="auth-form">
+  <h2><%= header %></h2>
+  <form action="<%= action %>" method="POST">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <label>Email
+    </label><br>
+    <input type="text" value="<%= @user.email %>" name="user[email]">
+    <br>
+
+    <label>Password
+    </label><br>
+    <input type="password" value="<%= @user.password %>" name="user[password]">
+    <br>
+
+    <input type="submit" class="submit" value="<%= button_text %>">
+  </form>
+</div>

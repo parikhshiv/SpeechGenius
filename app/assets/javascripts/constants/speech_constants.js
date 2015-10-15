@@ -1,0 +1,3 @@
+SpeechConstants = {
+  SPEECHES_RECIEVED: "SPEECHES_RECIEVED"
+};
