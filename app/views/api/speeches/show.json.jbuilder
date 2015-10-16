@@ -1,5 +1,5 @@
 json.extract! @speech, :id, :title, :speaker, :user_id,
-    :created_at, :updated_at
+    :created_at, :updated_at, :image_url
 
   def lyrics_formatting(lyrics)
     if lyrics[-2] && (lyrics[-2].include?("\n\n"))

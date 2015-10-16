@@ -66,15 +66,21 @@ var AnnotationShow = React.createClass({
     ApiUtil.deleteAnnotationComment(data);
   },
   render: function () {
-    var delete_button;
+    var delete_button; var image;
     if (window.CURRENT_USER_ID === this.state.annotation.user_id) {
       delete_button = <input className="cancel" onClick={this.delete} value="Delete Annotation" readOnly/>;
+    }
+    if (this.state.annotation.image_url) {
+      image = <img className="annotation-img" src={this.state.annotation.image_url}/>;
     }
     return (
       <div className="annotation-show-container" onClick={this.preventDefault}>
         <h5>SpeechGenius Annotation</h5>
         <div className="annotation-body">
-          {this.state.annotation.content}
+          <div className="annotation-text">
+            {this.state.annotation.content}
+          </div>
+          {image}
         </div>
         {delete_button}
         <CommentContainer comments={this.state.annotation.comments}

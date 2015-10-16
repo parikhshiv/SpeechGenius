@@ -362,3 +362,18 @@ input.cancel {
   border: none;
   margin: 5%;
 }
+
+img {
+  height: auto;
+  width: auto;
+  max-width: 100%;
+}
+
+input.disabled {
+  background-color: black;
+}
+
+input.disabled:hover {
+  background-color: black;
+  cursor: default;
+}

@@ -1,7 +1,8 @@
 # Phase 5: Votes (1 days)
 
 
-*First thooo: add images to annotations and comments, and delete/update functions to
+*Add update functions to everything but speeches*
+*First thooo: searchbar, and UPDATE functions to
 current user's annotations and comments*
 
 ## Rails

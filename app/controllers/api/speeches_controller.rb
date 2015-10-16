@@ -32,6 +32,6 @@ class Api::SpeechesController < ApplicationController
   private
 
   def speech_params
-    params.require(:speech).permit(:title, :content, :speaker)
+    params.require(:speech).permit(:title, :content, :speaker, :image_url)
   end
 end

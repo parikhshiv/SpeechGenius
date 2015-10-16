@@ -1,14 +1,14 @@
 var SpeechForm = React.createClass({
   mixins: [React.addons.LinkedStateMixin],
   getInitialState: function () {
-    return {speaker: null, title: null, content: null};
+    return {speaker: null, title: null, content: null, image_url: null};
   },
   handleSubmit: function () {
+    // CHECK FOR MALICIOUS HTML HERE
     if (/<[a-z][\s\S]*>/i.test(this.state.content)) {
       alert("NO HTML PLEASE!!!!!!");
       return;
     }
-    // CHECK FOR MALICIOUS HTML HERE
     if (this._validated()) {
       ApiUtil.createSpeech(this.state, function (speech_id) {
         this.props.history.pushState(null, "/speeches/" + speech_id );
@@ -25,11 +25,19 @@ var SpeechForm = React.createClass({
     }
     return false;
   },
+  image: function () {
+    filepicker.setKey("Anzi7KPVURiqZ1raadWcdz");
+    filepicker.pick(function(image_action){
+      this.setState({image_url: image_action.url});
+    }.bind(this));
+  },
   render: function () {
     var errors;
     if (this.state.errors) {
       errors = "All fields must be completed.";
     }
+    var image_upload = (this.state.image_url) ? <input type="image-upload" value="Upload Image!" className="image-upload disabled" readOnly/> :
+    <input type="image-upload" value="Upload Image!" onClick={this.image} className="image-upload" readOnly/>;
     return (
       <div className="speech-form">
         <h3>New Speech</h3>
@@ -42,6 +50,8 @@ var SpeechForm = React.createClass({
           <input type="text" placeholder="The speaker"
            valueLink={this.linkState('speaker')}/>
           <br/><br/>
+          {image_upload}
+          <br/>
           Text:
           <textarea rows='20' cols='40' valueLink={this.linkState('content')}/>
           <br/><br/>

@@ -20,8 +20,16 @@ var AnnotationForm = React.createClass({
   componentWillReceiveProps: function () {
     this.setState({});
   },
+  image: function () {
+    filepicker.setKey("Anzi7KPVURiqZ1raadWcdz");
+    filepicker.pick(function(image_action){
+      this.setState({image_url: image_action.url});
+    }.bind(this));
+  },
   render: function () {
     var hidden = (this.props.visible) ? "" : " hidden";
+    var image_upload = (this.state.image_url) ? <input type="image-upload" value="Upload Image!" className="image-upload disabled" readOnly/> :
+    <input type="image-upload" value="Upload Image!" onClick={this.image} className="image-upload" readOnly/>;
     return (
       <div className={"annotation" + hidden}>
         <form onSubmit={this.handleSubmit}>
@@ -29,9 +37,7 @@ var AnnotationForm = React.createClass({
           placeholder="Say something cool!"
           valueLink={this.linkState('content')}/>
           <br/>
-          <label>Image Url (optional): </label>
-          <input type="text" placeholder="image url..."
-          valueLink={this.linkState('image_url')}/>
+          {image_upload}
           <br/>
           <input type="Submit" value="Post annotation" readOnly/>
           <input className="cancel" onClick={this.props.cancel} value="cancel" readOnly/>

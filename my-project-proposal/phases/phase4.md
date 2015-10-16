@@ -13,13 +13,23 @@ current user's annotations and comments*
 
 
 *add images to annotations, comments, and speeches*
+
+Rest of Day:
+
 *Add SEARCH BAR oh no!*
 
 Styling:
+*See if you can seed data with json*
+*Style root page with pictures*
 *input text fields shouldn't change background on hover*
-*annotation container*
+*Style delete buttons*
+*Style image uploaders*
+*annotation show and annotation link can't show up together (same for annotation form)*
+*annotation container should show up next to paragraph for showing individual annotations*
 *annotation cancel button is too big*
 *anchor tags?*
+*CAN"T SHOW ANNOTATION IMMEDIATELY AFTER
+CREATING IT*
 
 ## Rails
 ### Models

@@ -6,11 +6,13 @@ var CommentListItem = React.createClass({
     }
   },
   render: function () {
-    var delete_button;
+    var delete_button; var image;
     if (window.CURRENT_USER_ID === this.props.user_id) {
       delete_button = <input className="cancel" onClick={this.deleteComment} value="Delete this comment" readOnly/>;
     }
-    // debugger;
+    if (this.props.image_url) {
+      image = <img className="comment-img" src={this.props.image_url}/>;
+    }
     return(
       <div className="comment">
         <div className="comment-header">
@@ -24,6 +26,7 @@ var CommentListItem = React.createClass({
         <div className="comment-body">
           {this.props.body}
         </div>
+        {image}
         {delete_button}
       </div>
     );

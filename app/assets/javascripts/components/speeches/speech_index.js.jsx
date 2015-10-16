@@ -18,7 +18,7 @@ var SpeechIndex = React.createClass({
         <HeaderAbout/>
         <div className="song-index">
           {this.state.speeches.map(function (speech) {
-              return <SpeechIndexItem key={speech.id} speech={speech}/>;
+              return <SpeechIndexItem key={speech.id} {...speech}/>;
             })
           }
         </div>
