@@ -64,13 +64,21 @@ var SpeechShow = React.createClass({
       selection.anchorOffset : selection.extentOffset;
     var length = selection.toString().length;
     var add_on = text.indexOf(selection.anchorNode.data);
-    // debugger;
-    if (this._checkForExistingAnnotations(text.substring(index + add_on, index + length + add_on))) {
+    var substring = text.substring(index + add_on, index + length + add_on);
+
+    if (this._checkForExistingAnnotations(substring)) {
       alert("CAN'T ANNOTATE ON TOP OF EXISTING ANNOTATIONS");
-      this.clearAnnotationLink;
+      this.setState({ link: false });
       return;
     }
-    if (selection.toString() !== text.substring(index + add_on, index + length + add_on)) {
+
+    if (substring[substring.length-1] === "<") {
+      alert("Click and drag to start annotations.");
+      this.setState({ link: false });
+      return;
+    }
+
+    if (selection.toString() !== substring) {
       length += 1;
     }
     array.splice(index + add_on, length,
@@ -112,16 +120,22 @@ var SpeechShow = React.createClass({
           title: this.state.speech.title,
           content: document.getElementById('text').innerHTML
         };
+        debugger;
         ApiUtil.updateSpeech(speaker_params, function () {
           this.setState({new:false, link: false});
           this.props.history.pushState(null, url);
         }.bind(this));
     }.bind(this));
   },
+  clearAnnotationShow: function () {
+    if (this.props.params.annotationID) {
+      this.props.history.pushState(null, "/speeches/" + this.props.params.speechID);
+    }
+  },
   render: function () {
     return(
       <div>
-        <div className="speech-container">
+        <div className="speech-container" onClick={this.clearAnnotationShow}>
           <h1>{this.state.speech.title}</h1>
           <h5>{this.state.speech.speaker}</h5>
           <div id="text" onMouseUp={this.newAnnotation}

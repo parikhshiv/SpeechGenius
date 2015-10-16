@@ -12,5 +12,3 @@ var AnnotationLink = React.createClass({
     );
   }
 });
-
-//

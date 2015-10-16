@@ -1,4 +1,5 @@
 var AnnotationShow = React.createClass({
+  mixins: [ReactRouter.History],
   getInitialState: function () {
     var annotationID = this.props.params.annotationID;
     var annotation = this._findAnnotationById(annotationID) || {} ;
@@ -20,6 +21,7 @@ var AnnotationShow = React.createClass({
   },
   componentWillMount: function () {
     AnnotationStore.addChangeListener(this._updateAnnotation);
+    // document.addEventListener('click', this.clearAnnotation);
     ApiUtil.fetchAnnotations(this.props.params.speechID);
   },
   componentWillReceiveProps: function (nextProps) {
@@ -27,15 +29,22 @@ var AnnotationShow = React.createClass({
   },
   componentWillUnmount: function () {
     AnnotationStore.removeChangeListener(this._updateAnnotation);
+    // document.removeEventListener('click', this.clearAnnotation);
+  },
+  clearAnnotation: function () {
+    // this.props.history.pushState(null, "/speeches/" + this.state.annotation.speech_id);
   },
   _updateAnnotation: function (id) {
     var annotationID = id || this.props.params.annotationID;
     var annotation = this._findAnnotationById(annotationID) || {} ;
     this.setState({annotation: annotation});
   },
+  preventDefault: function (e) {
+    // e.preventDefault();
+  },
   render: function () {
     return (
-      <div className="annotation-container">
+      <div className="annotation-container" onClick={this.preventDefault}>
         <div className="annotation-body">
           {this.state.annotation.content}
         </div>

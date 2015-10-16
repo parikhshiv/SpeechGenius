@@ -1,42 +1,46 @@
-# Phase 4: Votes (1 days)
+# Phase 4: Flux Architecture and Comments CRUD (2 days)
+
+*SHOULD PROBABLY ASK TA WHY MY SHIT IS GLITCHY AND WHY I CAN"T SHOW ANNOTATION IMMEDIATELY AFTER
+CREATING IT*
+
+*Redo how you styled speech show pages*
+*Order speeches alphabetically or something*
+*Deleting annotations is pretty important*
 
 
 *First thooo: add images to annotations and comments, and delete/update functions to
 current user's annotations and comments*
 
+*Add SEARCH BAR oh no!*
+
 ## Rails
 ### Models
-* Vote
-* Voting
 
 ### Controllers
-* Api::VotesController (create, destroy, index, show, update)
 
 ### Views
-* annotations/index.json.jbuilder
-* annotations/show.json.jbuilder
-* tags/show.json.jbuilder
 
 ## Flux
 ### Views (React Components)
-* VotesIndex
-  - VoteIndexItem
-* VoteForm
-* SearchIndex
+* CommentsIndex
+  - CommentIndexItem
+* CommentForm
 
 ### Stores
-* Vote
+* Comment
 
 ### Actions
-* ApiActions.receiveAllVotes
-* ApiActions.receiveSingleVote
-* ApiActions.deleteVote
+* ApiActions.receiveAllComments
+* ApiActions.receiveSingleComment
+* ApiActions.deleteComment
 
 ### ApiUtil
-* ApiUtil.fetchAllVotes
-* ApiUtil.fetchSingleVote
-* ApiUtil.createVote
-* ApiUtil.editVote
-* ApiUtil.destroyVote
+* ApiUtil.fetchAllComment
+* ApiUtil.fetchSingleComment
+* ApiUtil.createComment
+* ApiUtil.editComment
+* ApiUtil.destroyComment
 
 ## Gems/Libraries
+* Flux Dispatcher
+* Twitter Bootstrap

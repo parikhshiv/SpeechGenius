@@ -41,6 +41,7 @@ ApiUtil = {
     });
   },
   updateSpeech: function (data, callback) {
+    debugger;
     $.ajax({
       url: "/api/speeches/" + data.id,
       type: "patch",
