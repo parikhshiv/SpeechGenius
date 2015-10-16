@@ -8,7 +8,7 @@ class Api::AnnotationsController < ApplicationController
 
   def show
     @annotation = Annotation.find(params[:id])
-    render json: @annotation
+    render :show
   end
 
   def create
@@ -23,7 +23,7 @@ class Api::AnnotationsController < ApplicationController
 
   def destroy
     @annotation = Annotation.find(params[:id])
-    @annotation.delete!
+    @annotation.delete
     render json: @annotation
   end
 

@@ -7,6 +7,7 @@ var AnnotationForm = React.createClass({
     if (this._validated()) {
       this.props.createAnnotation($.extend(this.state,
          {speech_id: this.props.speech.id}));
+      this.setState({content: null, image_url: null})
     }
   },
   _validated: function () {

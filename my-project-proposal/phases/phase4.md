@@ -13,6 +13,12 @@ current user's annotations and comments*
 
 *Add SEARCH BAR oh no!*
 
+Styling:
+*input text fields shouldn't change background on hover*
+*annotation container*
+*annotation cancel button is too big*
+*anchor tags?*
+
 ## Rails
 ### Models
 

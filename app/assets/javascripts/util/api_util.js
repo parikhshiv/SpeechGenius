@@ -40,8 +40,37 @@ ApiUtil = {
       ApiActions.receiveAnnotations(annotations);
     });
   },
+  deleteAnnotationComment: function (data) {
+    $.ajax({
+      url: "/api/comments/" + data.id,
+      type: "delete",
+      data: {id: data.id},
+      success: function (annotation) {
+        ApiActions.receiveAnnotations([annotation]);
+      }
+    });
+  },
+  deleteSpeechComment: function (data) {
+    $.ajax({
+      url: "/api/comments/" + data.id,
+      type: "delete",
+      data: {id: data.id},
+      success: function (speech) {
+        ApiActions.receiveSpeeches([speech]);
+      }
+    });
+  },
+  deleteAnnotation: function (data, callback) {
+    $.ajax({
+      url: "/api/annotations/" + data.id,
+      type: "delete",
+      data: {id: data.id},
+      success: function () {
+        callback();
+      }
+    });
+  },
   updateSpeech: function (data, callback) {
-    debugger;
     $.ajax({
       url: "/api/speeches/" + data.id,
       type: "patch",

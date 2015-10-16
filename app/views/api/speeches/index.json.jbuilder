@@ -1,6 +1,6 @@
 json.array! @speeches do |speech|
   def lyrics_formatting(lyrics)
-    if lyrics[1] && lyrics[1].include?("\n\n")
+    if lyrics[-2] && (lyrics[-2].include?("\n\n"))
       return lyrics.join(".")
     end
     formatted_lyrics = ""

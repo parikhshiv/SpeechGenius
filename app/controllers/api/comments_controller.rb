@@ -7,7 +7,7 @@ class Api::CommentsController < ApplicationController
   def show
     @comment = Comment.find(params[:id])
     @commentable = @comment.commentable
-    render json: @comment
+    render :show
   end
 
   def create
@@ -23,8 +23,9 @@ class Api::CommentsController < ApplicationController
 
   def destroy
     @comment = Comment.find(params[:id])
-    @comment.delete!
-    render json: @comment
+    @commentable = @comment.commentable
+    @comment.delete
+    render :show
   end
 
   private

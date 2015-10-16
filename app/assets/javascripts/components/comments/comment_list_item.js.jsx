@@ -1,5 +1,16 @@
 var CommentListItem = React.createClass({
+  deleteComment: function () {
+    if (confirm("Are you sure?")) {
+      data = {id: this.props.id};
+      this.props.deleteComment(data);
+    }
+  },
   render: function () {
+    var delete_button;
+    if (window.CURRENT_USER_ID === this.props.user_id) {
+      delete_button = <input className="cancel" onClick={this.deleteComment} value="Delete this comment" readOnly/>;
+    }
+    // debugger;
     return(
       <div className="comment">
         <div className="comment-header">
@@ -7,12 +18,13 @@ var CommentListItem = React.createClass({
             {this.props.user_email}
           </div>
           <div className="comment-created-at pull-right">
-            {this.props.created_at}
+            {this.props.created_at_pretty}
           </div>
         </div>
         <div className="comment-body">
           {this.props.body}
         </div>
+        {delete_button}
       </div>
     );
   }

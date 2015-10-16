@@ -113,6 +113,7 @@ var SpeechShow = React.createClass({
         var url = "/speeches/" + this.props.params.speechID + "/annotations/" + annotation_id;
         text_link.setAttribute("href", '#' + url);
         text_link.removeAttribute("id");
+        text_link.setAttribute("id", 'link-' + annotation_id);
 
         var speaker_params = {
           id: this.state.speech.id,
@@ -131,6 +132,9 @@ var SpeechShow = React.createClass({
       this.props.history.pushState(null, "/speeches/" + this.props.params.speechID);
     }
   },
+  deleteComment: function (data) {
+    ApiUtil.deleteSpeechComment(data);
+  },
   render: function () {
     var hidden= (this.props.params.annotationID) ? "" : " invisible";
     return(
@@ -142,7 +146,7 @@ var SpeechShow = React.createClass({
             dangerouslySetInnerHTML={{__html: this.state.text}}>
           </div>
           <CommentContainer comments={this.state.speech.comments}
-          handleSubmit={this.handleSubmit}/>
+          handleSubmit={this.handleSubmit} deleteComment={this.deleteComment}/>
         </div>
         <div className={"annotation-container" + hidden}>
           <AnnotationLink visible={this.state.link} speech={this.state.speech}

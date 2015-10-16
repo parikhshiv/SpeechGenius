@@ -3,7 +3,7 @@ var CommentContainer = React.createClass({
     return (
       <div className="comment-container">
         <CommentForm handleSubmit={this.props.handleSubmit}/>
-        <CommentList comments={this.props.comments}/>
+        <CommentList comments={this.props.comments} deleteComment={this.props.deleteComment}/>
       </div>
     );
   }

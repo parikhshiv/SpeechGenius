@@ -10,7 +10,9 @@
 <body>
 
   <% if current_user %>
-    <!-- window.CURENT_USER_ID = <%= current_user.id %> -->
+    <script>
+      window.CURRENT_USER_ID = <%= current_user.id %>
+    </script>
   <% else %>
     <header>
         <h1 class="home-page">SPEECHGENIUS</h1>
