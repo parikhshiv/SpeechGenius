@@ -23,10 +23,9 @@ var AnnotationForm = React.createClass({
     var hidden = (this.props.visible) ? "" : " hidden";
     return (
       <div className={"annotation" + hidden}>
-        <h3>Add an Annotation</h3>
         <form onSubmit={this.handleSubmit}>
           <textarea rows='5' cols='20'
-          placeholder="Add an annotation..."
+          placeholder="Say something cool!"
           valueLink={this.linkState('content')}/>
           <br/>
           <label>Image Url (optional): </label>
@@ -34,8 +33,8 @@ var AnnotationForm = React.createClass({
           valueLink={this.linkState('image_url')}/>
           <br/>
           <input type="Submit" value="Post annotation" readOnly/>
+          <input className="cancel" onClick={this.props.cancel} value="cancel" readOnly/>
         </form>
-        <button onClick={this.props.cancel}>Cancel</button>
       </div>
     )
   }

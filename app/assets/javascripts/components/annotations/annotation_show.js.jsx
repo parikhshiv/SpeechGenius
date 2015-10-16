@@ -44,15 +44,10 @@ var AnnotationShow = React.createClass({
   },
   render: function () {
     return (
-      <div className="annotation-container" onClick={this.preventDefault}>
+      <div className="annotation-show-container" onClick={this.preventDefault}>
+        <h5>SpeechGenius Annotation</h5>
         <div className="annotation-body">
           {this.state.annotation.content}
-        </div>
-        <div className="annotation-created-at">
-          {this.state.annotation.created_at}
-        </div>
-        <div className="annotation-user-email">
-          {this.state.annotation.user_email}
         </div>
         <CommentContainer comments={this.state.annotation.comments}
         handleSubmit={this.handleSubmit}/>

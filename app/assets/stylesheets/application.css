@@ -163,6 +163,10 @@ div.text {
   overflow-y: auto;
 }
 
+#text {
+  white-space: pre-wrap;
+}
+
 div.auth-form{
   width: 35%;
   height: 250px;
@@ -197,12 +201,6 @@ div.auth-form > form > input {
   border: 1px solid black;
 }
 
-div.annotation-container{
-  float: right;
-  text-align: center;
-  width: 35%;
-}
-
 div.speech-container{
   width: 50%;
   float: left;
@@ -230,11 +228,15 @@ button.annotation-link {
   color: #F5FF64;
   font-size: 18px;
   font-style: normal;
-  margin: 10px;
-  position: fixed;
   -webkit-transition: all .2s;
   -moz-transition: all .2s;
   transition: all .2s;
+}
+
+div.annotation-link {
+  padding: 10px;
+  border-left: 2px solid yellow;
+  position: fixed;
 }
 
 button.annotation-link:hover {
@@ -247,4 +249,116 @@ button.annotation-link:hover {
 
 .hidden {
   display: none;
+}
+
+div.comment-container {
+  padding: 2%;
+  background-color: #2D2C2C;
+  padding-left: 2%;
+  margin-top: 4%;
+  text-align: left;
+}
+
+textarea {
+  background-color: #5D5959;
+  font-size: 16px;
+  width: 97%;
+  padding: 1%;
+  border: 1px solid #A5A2A2;
+  color: #EAE9E9;
+}
+
+input {
+  width: inherit;
+  background-color: #424242;
+  border-radius: 5%;
+  border: 1px solid #C1C1C1;
+  color: #E4E4E4;
+  font-size: 13px;
+  -webkit-transition: all .1s;
+  -moz-transition: all .1s;
+  transition: all .1s;
+}
+
+input:hover {
+  cursor: pointer;
+  background-color: #A5A2A2;
+  -webkit-transition: all .1s;
+  -moz-transition: all .1s;
+  transition: all .1s;
+}
+
+div.comment-form {
+  margin-bottom: 1%;
+}
+
+div.comment {
+  border-bottom: 1px solid white;
+  padding: 1%;
+}
+
+div.comment-header {
+  width: inherit;
+  min-height: 25px;
+  font-size: 13px;
+}
+
+div.comment-created-at {
+  float: right;
+  font-size: 11px;
+  color: #B1A9A9;
+}
+
+div.comment-body {
+  padding: 1%;
+  color: #C176BA;
+}
+
+div.annotation-container {
+  float: right;
+  width: 28%;
+  padding: 3%;
+  background-color: #1F1F1F;
+  margin-right: 2%;
+  border-left: 2px solid yellow;
+}
+
+div.invisible {
+  float: right;
+  width: 28%;
+  padding: 3%;
+  background-color: black;
+  margin-right: 2%;
+  border-left: none;
+}
+
+div.annotation {
+  position: fixed;
+  border-left: 2px solid yellow;
+  padding-left: 2%;
+}
+
+div.annotation-show-container {
+  padding: 1%;
+  /*position: fixed;*/
+}
+
+div.annotation-body {
+  padding: 1%;
+  color: #1B648A;
+  font-size: 20px;
+}
+
+div.annotation-show-container > h5 {
+  margin-bottom: 2%;
+  color: yellow;
+  font-size: 21px;
+  margin: 0px;
+  font-weight: 100;
+}
+
+input.cancel {
+  background-color: black;
+  border: none;
+  margin: 5%;
 }

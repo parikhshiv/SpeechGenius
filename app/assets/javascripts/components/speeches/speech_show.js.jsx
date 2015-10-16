@@ -120,7 +120,6 @@ var SpeechShow = React.createClass({
           title: this.state.speech.title,
           content: document.getElementById('text').innerHTML
         };
-        debugger;
         ApiUtil.updateSpeech(speaker_params, function () {
           this.setState({new:false, link: false});
           this.props.history.pushState(null, url);
@@ -133,6 +132,7 @@ var SpeechShow = React.createClass({
     }
   },
   render: function () {
+    var hidden= (this.props.params.annotationID) ? "" : " invisible";
     return(
       <div>
         <div className="speech-container" onClick={this.clearAnnotationShow}>
@@ -144,11 +144,13 @@ var SpeechShow = React.createClass({
           <CommentContainer comments={this.state.speech.comments}
           handleSubmit={this.handleSubmit}/>
         </div>
-        <AnnotationLink visible={this.state.link} speech={this.state.speech}
-          handleClick={this.handleClick}/>
-        <AnnotationForm visible={this.state.new} speech={this.state.speech}
-          cancel={this.cancel} createAnnotation={this.createAnnotation}/>
-        {this.props.children}
+        <div className={"annotation-container" + hidden}>
+          <AnnotationLink visible={this.state.link} speech={this.state.speech}
+            handleClick={this.handleClick}/>
+          <AnnotationForm visible={this.state.new} speech={this.state.speech}
+            cancel={this.cancel} createAnnotation={this.createAnnotation}/>
+          {this.props.children}
+        </div>
       </div>
     );
   }

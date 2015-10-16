@@ -18,8 +18,7 @@ CommentForm = React.createClass({
   },
   render: function () {
     return (
-      <div className="speech-form">
-        <h3>Add a Comment</h3>
+      <div className="comment-form">
         <form onSubmit={this.handleSubmit}>
           <textarea rows='5' cols='20'
           placeholder="Suggest an improvement, or add a comment..."

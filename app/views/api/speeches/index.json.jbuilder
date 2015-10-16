@@ -1,14 +1,14 @@
 json.array! @speeches do |speech|
   def lyrics_formatting(lyrics)
-    if lyrics[1] && lyrics[1].include?("<br>")
+    if lyrics[1] && lyrics[1].include?("\n\n")
       return lyrics.join(".")
     end
     formatted_lyrics = ""
     lyrics.each do |line|
-      formatted_lyrics << "#{line.strip}.<br><br>"
+      formatted_lyrics << "#{line.strip}.\n\n"
     end
 
-    "#{formatted_lyrics[0...-8]}"
+    "#{formatted_lyrics[0...-2]}"
   end
 
   json.extract! speech, :id, :title, :speaker, :user_id,
