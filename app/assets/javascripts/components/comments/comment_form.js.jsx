@@ -16,6 +16,12 @@ CommentForm = React.createClass({
     }
     return false;
   },
+  image: function () {
+    filepicker.setKey("Anzi7KPVURiqZ1raadWcdz");
+    filepicker.pick(function(Blob){
+      console.log(Blob.url);
+    });
+  },
   render: function () {
     return (
       <div className="comment-form">
@@ -25,8 +31,11 @@ CommentForm = React.createClass({
           valueLink={this.linkState('body')}/>
           <br/>
           <input type="Submit" value="Post comment" readOnly/>
+          <input type="image-upload" value="Upload Image!" onClick={this.image} readOnly/>
         </form>
       </div>
     )
   }
 });
+
+// data-fp-maxsize="4"

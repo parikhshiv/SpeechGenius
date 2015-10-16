@@ -11,6 +11,8 @@ CREATING IT*
 *First thooo: add images to annotations and comments, and delete/update functions to
 current user's annotations and comments*
 
+
+*add images to annotations, comments, and speeches*
 *Add SEARCH BAR oh no!*
 
 Styling:
