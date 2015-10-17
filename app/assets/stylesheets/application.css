@@ -123,11 +123,6 @@ h1.home-page:hover {
   text-shadow: black 1px -1px -1px;
 }
 
-div.speech-form {
-  width: 500px;
-  margin: auto;
-}
-
 h4.errors {
   color: red;
 }
@@ -140,24 +135,6 @@ div.errors {
   font-style: normal;
 }
 
-div.speech-index-item {
-  border: 1px solid white;
-  padding: 10px;
-  max-width: 300px;
-  margin: 15px;
-  -webkit-transition: all .3s;
-  -moz-transition: all .3s;
-  transition: all .3s;
-}
-
-div.speech-index-item:hover {
-  background-color: #565656;
-  cursor: pointer;
-  -webkit-transition: all .3s;
-  -moz-transition: all .3s;
-  transition: all .3s;
-}
-
 div.text {
   width: 500px;
   overflow-y: auto;
@@ -167,96 +144,8 @@ div.text {
   white-space: pre-wrap;
 }
 
-div.auth-form{
-  width: 35%;
-  height: 250px;
-  margin: 0px auto;
-  text-align: center;
-  background-color: grey;
-  border: 1px solid;
-}
-
-div.auth-form > h2 {
-  color: #F5FF64;
-  margin: 0px;
-  padding: 10px;
-  font-size: 34px;
-}
-
-div.auth-form > form {
-  background-color: #A09999;
-  margin: 10px;
-  width: 46%;
-  margin: auto;
-  padding: 5px;
-  font-size: 14px;
-  text-align: -webkit-left;
-}
-
-div.auth-form > form > input {
-  width: 95%;
-  height: 20px;
-  background-color: grey;
-  border-radius: 5%;
-  border: 1px solid black;
-}
-
-div.speech-container{
-  width: 50%;
-  float: left;
-  margin-left: 10%;
-  border-left: 1px solid white;
-  padding-left: 3%;
-}
-
-a.annotation-link {
-  background-color: #F5FF64;
-  color: black;
-}
-
-div.auth-form > form > input.submit {
-  width: inherit;
-  margin-top: 10px;
-  color: white;
-}
-
-button.annotation-link {
-  height: inherit;
-  background-color: #333333;
-  border: 1px solid #F5FF64;
-  width: 350px;
-  color: #F5FF64;
-  font-size: 18px;
-  font-style: normal;
-  -webkit-transition: all .2s;
-  -moz-transition: all .2s;
-  transition: all .2s;
-}
-
-div.annotation-link {
-  padding: 10px;
-  border-left: 2px solid yellow;
-  position: fixed;
-}
-
-button.annotation-link:hover {
-  cursor: pointer;
-  background-color: #403E3E;
-  -webkit-transition: all .2s;
-  -moz-transition: all .2s;
-  transition: all .2s;
-}
-
 .hidden {
   display: none;
-}
-
-div.comment-container {
-  padding: 2%;
-  background-color: #2D2C2C;
-  padding-left: 2%;
-  margin-top: 4%;
-  text-align: left;
 }
 
 textarea {
@@ -288,41 +177,6 @@ input:hover {
   transition: all .1s;
 }
 
-div.comment-form {
-  margin-bottom: 1%;
-}
-
-div.comment {
-  border-bottom: 1px solid white;
-  padding: 1%;
-}
-
-div.comment-header {
-  width: inherit;
-  min-height: 25px;
-  font-size: 13px;
-}
-
-div.comment-created-at {
-  float: right;
-  font-size: 11px;
-  color: #B1A9A9;
-}
-
-div.comment-body {
-  padding: 1%;
-  color: #C176BA;
-}
-
-div.annotation-container {
-  float: right;
-  width: 28%;
-  padding: 3%;
-  background-color: #1F1F1F;
-  margin-right: 2%;
-  border-left: 2px solid yellow;
-}
-
 div.invisible {
   float: right;
   width: 28%;
@@ -330,31 +184,6 @@ div.invisible {
   background-color: black;
   margin-right: 2%;
   border-left: none;
-}
-
-div.annotation {
-  position: fixed;
-  border-left: 2px solid yellow;
-  padding-left: 2%;
-}
-
-div.annotation-show-container {
-  padding: 1%;
-  /*position: fixed;*/
-}
-
-div.annotation-body {
-  padding: 1%;
-  color: #1B648A;
-  font-size: 20px;
-}
-
-div.annotation-show-container > h5 {
-  margin-bottom: 2%;
-  color: yellow;
-  font-size: 21px;
-  margin: 0px;
-  font-weight: 100;
 }
 
 input.cancel {

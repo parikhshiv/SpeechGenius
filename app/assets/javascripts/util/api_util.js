@@ -80,5 +80,10 @@ ApiUtil = {
         ApiActions.receiveSpeeches([speech]);
       }
     });
+  },
+  fetchFilteredSpeeches: function (data) {
+    $.get("api/speeches/search", {query: data}, function (speeches) {
+      ApiActions.receiveFilteredSpeeches(speeches);
+    });
   }
 };

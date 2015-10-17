@@ -1,11 +1,17 @@
 (function(root) {
   'use strict';
   var _speeches = [];
+  var _filteredSpeeches = [];
   var CHANGE_EVENT = "change";
 
   var resetSpeeches = function(speeches){
     _speeches = speeches.slice(0);
     sort_comments(_speeches);
+  };
+
+  var resetFilteredSpeeches = function (filteredSpeeches) {
+    _filteredSpeeches = filteredSpeeches.slice(0);
+    // could put sort here, for created_at, or alphabetical
   };
 
   var sort_comments = function (commentable) {
@@ -39,6 +45,9 @@
         }
       });
     },
+    allFilteredSpeeches: function () {
+      return _filteredSpeeches.slice();
+    },
     addChangeListener: function(callback){
       this.on(CHANGE_EVENT, callback);
     },
@@ -49,6 +58,10 @@
       switch (payload.actionType) {
         case SpeechConstants.SPEECHES_RECIEVED:
           resetSpeeches(payload.speeches);
+          SpeechStore.emit(CHANGE_EVENT);
+          break;
+        case SpeechConstants.FILTERED_SPEECHES_RECIEVED:
+          resetFilteredSpeeches(payload.speeches);
           SpeechStore.emit(CHANGE_EVENT);
           break;
       }

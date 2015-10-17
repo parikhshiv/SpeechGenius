@@ -29,6 +29,16 @@ class Api::SpeechesController < ApplicationController
     end
   end
 
+  def search
+   if params[:query].present?
+     @speeches = Speech.where("LOWER(title) LIKE ?", "#{params[:query].downcase}%")
+   else
+     @speeches = Speech.none
+   end
+
+   render :search
+ end
+
   private
 
   def speech_params

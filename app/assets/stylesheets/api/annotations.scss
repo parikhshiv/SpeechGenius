@@ -1,3 +1,75 @@
 // Place all the styles related to the api::annotations controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+// FOR TESTING
+header {
+  overflow: auto;
+}
+
+div.annotation-container {
+  float: right;
+  width: 28%;
+  padding: 3%;
+  background-color: #1F1F1F;
+  margin-right: 2%;
+  border-left: 2px solid yellow;
+}
+
+div.annotation {
+  position: fixed;
+  border-left: 2px solid yellow;
+  padding-left: 2%;
+}
+
+div.annotation-show-container {
+  padding: 1%;
+  /*position: fixed;*/
+}
+
+div.annotation-body {
+  padding: 1%;
+  color: #1B648A;
+  font-size: 20px;
+}
+
+div.annotation-show-container > h5 {
+  margin-bottom: 2%;
+  color: yellow;
+  font-size: 21px;
+  margin: 0px;
+  font-weight: 100;
+}
+
+a.annotation-link {
+  background-color: #F5FF64;
+  color: black;
+}
+
+button.annotation-link {
+  height: inherit;
+  background-color: #333333;
+  border: 1px solid #F5FF64;
+  width: 350px;
+  color: #F5FF64;
+  font-size: 18px;
+  font-style: normal;
+  -webkit-transition: all .2s;
+  -moz-transition: all .2s;
+  transition: all .2s;
+}
+
+div.annotation-link {
+  padding: 10px;
+  border-left: 2px solid yellow;
+  position: fixed;
+}
+
+button.annotation-link:hover {
+  cursor: pointer;
+  background-color: #403E3E;
+  -webkit-transition: all .2s;
+  -moz-transition: all .2s;
+  transition: all .2s;
+}

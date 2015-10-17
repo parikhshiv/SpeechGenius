@@ -1,3 +1,42 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+div.auth-form > form > input {
+  width: 95%;
+  height: 20px;
+  background-color: grey;
+  border-radius: 5%;
+  border: 1px solid black;
+}
+
+div.auth-form > form > input.submit {
+  width: inherit;
+  margin-top: 10px;
+  color: white;
+}
+
+div.auth-form{
+  width: 35%;
+  height: 250px;
+  margin: 0px auto;
+  text-align: center;
+  background-color: grey;
+  border: 1px solid;
+}
+
+div.auth-form > h2 {
+  color: #F5FF64;
+  margin: 0px;
+  padding: 10px;
+  font-size: 34px;
+}
+
+div.auth-form > form {
+  background-color: #A09999;
+  margin: 10px;
+  width: 46%;
+  margin: auto;
+  padding: 5px;
+  font-size: 14px;
+  text-align: -webkit-left;
+}

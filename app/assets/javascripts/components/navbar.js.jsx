@@ -6,6 +6,7 @@ var Navbar = React.createClass({
   render: function () {
     return (
       <header>
+        <SpeechSearch/>
         <h1 onClick={this.home} className="home-page">SPEECHGENIUS</h1>
       </header>
     );

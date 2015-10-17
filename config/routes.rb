@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   resource :session, :only => [:new, :create, :destroy]
   resources :users, :only => [:new, :create, :show, :index]
   namespace :api, defaults: {format: :json} do
-    resources :speeches, :only => [:new, :create, :show, :index, :destroy, :update]
+    resources :speeches, :only => [:new, :create, :show, :index, :destroy, :update] do
+      get "search", on: :collection
+    end
     resources :comments, :only => [:new, :create, :show, :index, :destroy]
     resources :annotations, :only => [:new, :create, :show, :index, :destroy]
   end

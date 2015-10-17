@@ -10,5 +10,11 @@ ApiActions = {
       actionType: AnnotationConstants.ANNOTATIONS_RECEIVED,
       annotations: annotations
     });
+  },
+  receiveFilteredSpeeches: function (speeches) {
+    AppDispatcher.dispatch({
+      actionType: SpeechConstants.FILTERED_SPEECHES_RECIEVED,
+      speeches: speeches
+    });
   }
 };

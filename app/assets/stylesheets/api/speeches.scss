@@ -1,3 +1,42 @@
 // Place all the styles related to the api::speeches controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+div.speech-form {
+  width: 500px;
+  margin: auto;
+}
+
+div.speech-index-item {
+  border: 1px solid white;
+  padding: 10px;
+  max-width: 300px;
+  margin: 15px;
+  -webkit-transition: all .3s;
+  -moz-transition: all .3s;
+  transition: all .3s;
+}
+
+div.speech-index-item:hover {
+  background-color: #565656;
+  cursor: pointer;
+  -webkit-transition: all .3s;
+  -moz-transition: all .3s;
+  transition: all .3s;
+}
+
+div.speech-container{
+  width: 50%;
+  float: left;
+  margin-left: 10%;
+  border-left: 1px solid white;
+  padding-left: 3%;
+}
+
+div.speech-search {
+  float:left;
+}
+
+div.search-results {
+  position: fixed;
+}
