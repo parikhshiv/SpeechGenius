@@ -11,7 +11,8 @@ speech1 = Speech.create([{title: "the best speech ever", speaker: "Shiv",
                           content: "a lot of content2", user_id: 1},
                           {title: "the best speech ever3", speaker: "Shiv2",
                         content: "a lot of content3", user_id: 1},
-                        {title: "I Have A Dream", speaker: "Martin Luther King Jr.",
+                        {title: "I Have A Dream", image_url: "https://upload.wikimedia.org/wikipedia/commons/4/42/1-19-Martin-Luther-King-ftr.jpg",
+                          speaker: "Martin Luther King Jr.",
                       content: "I am happy to join with you today in what will go down in history as the greatest demonstration for freedom in the history of our nation.
 Five score years ago, a great American, in whose symbolic shadow we stand today, signed the Emancipation Proclamation. This momentous decree came as a great beacon light of hope to millions of Negro slaves who had been seared in the flames of withering injustice. It came as a joyous daybreak to end the long night of their captivity.
 But one hundred years later, the Negro still is not free. One hundred years later, the life of the Negro is still sadly crippled by the manacles of segregation and the chains of discrimination. One hundred years later, the Negro lives on a lonely island of poverty in the midst of a vast ocean of material prosperity. One hundred years later, the Negro is still languishing in the corners of American society and finds himself an exile in his own land. So we have come here today to dramatize a shameful condition.
