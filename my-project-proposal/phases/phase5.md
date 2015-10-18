@@ -1,6 +1,7 @@
 # Phase 5: Votes (1 days)
 
-
+*you really shouldn't be able to hit the back button all the way to the login page, even
+after you already logged in*
 *Add update functions to everything but speeches*
 *First thooo: searchbar, and UPDATE functions to
 current user's annotations and comments*

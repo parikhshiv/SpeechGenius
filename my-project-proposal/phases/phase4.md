@@ -24,7 +24,6 @@ Styling:
 *input text fields shouldn't change background on hover*
 *Style delete buttons*
 *Style image uploaders*
-*annotation show and annotation link can't show up together (same for annotation form)*
 *annotation container should show up next to paragraph for showing individual annotations*
 *annotation cancel button is too big*
 *anchor tags?*

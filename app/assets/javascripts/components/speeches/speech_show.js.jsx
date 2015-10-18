@@ -43,9 +43,17 @@ var SpeechShow = React.createClass({
       }
     }
   },
-  clearAnnotationLink: function () {
+  componentWillReceiveProps: function (nextProps) {
+    if (nextProps.params.annotationID && this.state.new) {
+      this.cancel();
+    } else if (nextProps.params.annotationID) {
+      this.clearAnnotationLink('redirect');
+    }
+  },
+  clearAnnotationLink: function (redirect) {
+    // debugger;
     var selection = window.getSelection();
-    if (selection.toString().trim().length < 1) {
+    if (selection.toString().trim().length < 1 || redirect === 'redirect') {
       this.setState({ link: false });
     }
   },
@@ -65,12 +73,17 @@ var SpeechShow = React.createClass({
     var length = selection.toString().length;
     var add_on = text.indexOf(selection.anchorNode.data);
     var substring = text.substring(index + add_on, index + length + add_on);
-
-    if (this._checkForExistingAnnotations(substring)) {
+    // debugger;
+    if (text.indexOf(selection) === -1) {
       alert("CAN'T ANNOTATE ON TOP OF EXISTING ANNOTATIONS");
       this.setState({ link: false });
       return;
     }
+    // if (this._checkForExistingAnnotations(substring)) {
+    //   alert("CAN'T ANNOTATE ON TOP OF EXISTING ANNOTATIONS");
+    //   this.setState({ link: false });
+    //   return;
+    // }
 
     if (substring[substring.length-1] === "<") {
       alert("Click and drag to start annotations.");

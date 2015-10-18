@@ -18,12 +18,14 @@ CommentForm = React.createClass({
   },
   image: function () {
     filepicker.setKey("Anzi7KPVURiqZ1raadWcdz");
-    filepicker.pick(function(image_action){
+    filepicker.pick({maxSize: 10*1024*1024,
+      services: ['IMAGE_SEARCH','COMPUTER','URL','WEBCAM'],
+      openTo: "IMAGE_SEARCH"}, function(image_action){
       this.setState({image_url: image_action.url});
     }.bind(this));
   },
   render: function () {
-    var image_upload = (this.state.image_url) ? <input type="image-upload" value="Upload Image!" className="image-upload isabled" readOnly/> :
+    var image_upload = (this.state.image_url) ? <input type="image-upload" value="Upload Image!" className="image-upload disabled" readOnly/> :
     <input type="image-upload" value="Upload Image!" onClick={this.image} className="image-upload" readOnly/>;
     return (
       <div className="comment-form">

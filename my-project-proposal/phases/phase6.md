@@ -4,5 +4,6 @@ Bonus Work (Remaining Time)
 different genres such as speeches, literature, and word etymologies (the list could go on...).
 8. Forums, blogs, etc.
 
-*Get filepicker to only allow for web images, camera uploads, and document uploads*
 *Make sure and add minimum requirements for length of new speeches*
+*make sure all filepicker is https only (which it may be already)*
+*Only works on chrome!*
