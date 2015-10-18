@@ -1,5 +1,4 @@
 var AnnotationLink = React.createClass({
-  mixins: [ReactRouter.History],
   componentWillReceiveProps: function () {
     this.setState({});
   },

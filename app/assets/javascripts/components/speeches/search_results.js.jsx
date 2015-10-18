@@ -3,8 +3,9 @@ var SearchResults = React.createClass({
     return (
       <ul className="search-results">
         {this.props.speeches.map(function (speech) {
-          return <SearchResultItem key={speech.id} {...speech}/>
-        })}
+          return <SearchResultItem key={speech.id}
+          resetSearch={this.props.resetSearch} {...speech}/>
+        }.bind(this))}
       </ul>
     );
   }
