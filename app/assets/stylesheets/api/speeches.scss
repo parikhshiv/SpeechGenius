@@ -3,8 +3,13 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 div.speech-form {
-  width: 500px;
-  margin: auto;
+  width: 49%;
+  margin: -3% auto 3% auto;
+}
+
+div.speech-form > h3 {
+  font-size: 34px;
+  margin-bottom: 0%;
 }
 
 div.speech-index-item {
@@ -35,8 +40,48 @@ div.speech-container{
 
 div.speech-search {
   float:left;
+  margin-top: 0.5%;
+  width: 40%;
+  margin-left: 1%;
+  max-height: 44px;
 }
 
-div.search-results {
+div.speech-search > input {
+  color: black;
+  background-color: white;
+  height: 30px;
+  padding: 0.5%;
+}
+
+div.speech-search > input::-webkit-input-placeholder {
+   text-align: left;
+   color: black;
+}
+
+div.speech-search > input:hover {
+  background-color: white;
+  cursor: auto;
+}
+
+ul.search-results {
   position: fixed;
+  padding: 0px;
+  margin: 0px;
+}
+
+div.search-result-item {
+  background-color: #D4D4D4;
+  border: 1px solid #232323;
+  padding: 3%;
+  -webkit-transition: all .1s;
+  -moz-transition: all .1s;
+  transition: all .1s;
+}
+
+div.search-result-item:hover {
+  background-color: white;
+  cursor: pointer;
+  -webkit-transition: all .1s;
+  -moz-transition: all .1s;
+  transition: all .1s;
 }

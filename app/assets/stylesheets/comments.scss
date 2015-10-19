@@ -10,7 +10,40 @@ div.comment-container {
   text-align: left;
 }
 
+div.comment-image-upload {
+  min-height: 25px;
+  width: 69%;
+  float: right;
+}
 
+div.comment-image-upload > input {
+  font-weight: 300;
+  width: 55%;
+  font-size: 16px;
+  background-color: inherit;
+  border: none;
+  color: #A5A2A2;
+  -webkit-transition: all .1s;
+  -moz-transition: all .1s;
+  transition: all .1s;
+}
+
+div.comment-image-upload > input:hover{
+  color: white;
+  -webkit-transition: all .1s;
+  -moz-transition: all .1s;
+  transition: all .1s;
+}
+
+div.comment-image-upload > input.disabled {
+  color: #16CE16;
+  font-weight: 200;
+  font-size: 16px;
+}
+
+div.comment-image-upload > input.disabled:hover {
+  cursor: default;
+}
 
 div.comment {
   border-bottom: 1px solid white;
@@ -30,10 +63,25 @@ div.comment-created-at {
 }
 
 div.comment-body {
-  padding: 1%;
+  // padding: 1%;
+  padding-bottom: 1%;
   color: #C176BA;
 }
 
 div.comment-form {
   margin-bottom: 1%;
+}
+
+div.comment-submit-button {
+  width: 17%;
+  float: left;
+}
+
+div.comment-submit-button > input {
+  width: auto;
+}
+
+div.comment-button-container {
+  min-height: 25px;
+  margin-top: 1%;
 }

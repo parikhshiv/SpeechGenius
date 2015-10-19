@@ -38,28 +38,38 @@ var SpeechForm = React.createClass({
     if (this.state.errors) {
       errors = "All fields must be completed.";
     }
-    var image_upload = (this.state.image_url) ? <input type="image-upload" value="Upload Image!" className="image-upload disabled" readOnly/> :
-    <input type="image-upload" value="Upload Image!" onClick={this.image} className="image-upload" readOnly/>;
+    var image_upload = (this.state.image_url) ? <input type="image-upload" value="Image Attached ✓" className="image-upload disabled" readOnly/> :
+    <input type="image-upload" value="Upload An Image!" onClick={this.image} className="image-upload" readOnly/>;
     return (
       <div className="speech-form">
-        <h3>New Speech</h3>
+        <h3>Add A New Speech</h3>
         <h4 className="errors">{errors}</h4>
         <form onSubmit={this.handleSubmit}>
-          <label>Title: </label>
-          <input type="text" placeholder="Title"
-          valueLink={this.linkState('title')}/>
-          <label>By: </label>
-          <input type="text" placeholder="The speaker"
-           valueLink={this.linkState('speaker')}/>
-          <br/><br/>
-          {image_upload}
+          <div className = "form-input">
+            <label>Title:</label>
+            <br/>
+            <input type="text"
+            valueLink={this.linkState('title')}/>
+          </div>
+          <div className = "form-input">
+            <label>Speaker:</label>
+            <br/>
+            <input type="text"
+            valueLink={this.linkState('speaker')}/>
+          </div>
+          <div className = "image-upload">
+            {image_upload}
+          </div>
+          Speech Text:
+          <textarea rows='20' cols='40' placeholder="Enter Speech Here" valueLink={this.linkState('content')}/>
           <br/>
-          Text:
-          <textarea rows='20' cols='40' valueLink={this.linkState('content')}/>
-          <br/><br/>
           <input type="Submit"/>
         </form>
       </div>
     )
   }
 });
+
+// placeholder="e.g. 'I Have A Dream'"
+//
+// placeholder="e.g. 'Martin Luther King Jr.'"

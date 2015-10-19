@@ -21,6 +21,10 @@ body {
   margin: 0px;
 }
 
+::-webkit-input-placeholder {
+
+}
+
 div.index {
   margin: 0px 100px;
 }
@@ -77,6 +81,7 @@ header.header-2 {
 header {
   background-color: #F5FF64;
   color: black;
+  /*position: relative;*/
 }
 
 header.pull-right {
@@ -87,10 +92,11 @@ header > h1 {
   text-align: center;
   margin-top: 0px;
   margin-bottom: 0px;
+  width: 61%;
 }
 
 .logout, .new-speech {
-  width: 10%;
+  min-width: 10%;
   display: inline-block;
   text-align: center;
   /*float: right;*/
@@ -124,6 +130,8 @@ h1.home-page:hover {
 
 h4.errors {
   color: red;
+  margin: 3% 0px;
+  font-weight: 100;
 }
 
 div.errors {
@@ -141,6 +149,7 @@ div.text {
 
 #text {
   white-space: pre-wrap;
+  line-height: 27px;
 }
 
 .hidden {
@@ -148,7 +157,7 @@ div.text {
 }
 
 textarea {
-  background-color: #5D5959;
+  background-color: #424242;
   font-size: 16px;
   width: 97%;
   padding: 1%;
@@ -176,6 +185,14 @@ input:hover {
   transition: all .1s;
 }
 
+input.cancel {
+  background-color: inherit;
+  border: none;
+  -webkit-transition: all .1s;
+  -moz-transition: all .1s;
+  transition: all .1s;
+}
+
 div.invisible {
   float: right;
   width: 28%;
@@ -185,10 +202,11 @@ div.invisible {
   border-left: none;
 }
 
-input.cancel {
-  background-color: black;
-  border: none;
-  margin: 5%;
+input.cancel:hover {
+  color: #B91919;
+  -webkit-transition: all .1s;
+  -moz-transition: all .1s;
+  transition: all .1s;
 }
 
 img {
@@ -197,11 +215,54 @@ img {
   max-width: 100%;
 }
 
-input.disabled {
-  background-color: black;
+div.image-upload {
+  float: right;
+  width: 100%;
+  margin: 2% 1% 0% 0%;
 }
 
-input.disabled:hover {
+div.image-upload > input {
+  font-size: 16px;
+  width: 22%;
+  float: right;
+  background-color: inherit;
+  border: none;
+  color: #A5A2A2;
+  -webkit-transition: all .1s;
+  -moz-transition: all .1s;
+  transition: all .1s;
+}
+
+div.image-upload > input:hover{
+  color: white;
+  -webkit-transition: all .1s;
+  -moz-transition: all .1s;
+  transition: all .1s;
+}
+
+div.image-upload > input.disabled {
+  background-color: black;
+  color: #16CE16;
+  font-weight: 200;
+  font-size: 16px;
+}
+
+div.image-upload > input.disabled:hover {
   background-color: black;
   cursor: default;
+}
+
+div.form-input {
+  float: left;
+  width: 50%;
+}
+
+div.form-input > input {
+  width: 95%;
+  min-height: 25px;
+}
+
+div.form-input > input:hover {
+  cursor: auto;
+  background-color: #424242;
 }

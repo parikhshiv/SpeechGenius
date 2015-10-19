@@ -35,7 +35,7 @@ var AnnotationShow = React.createClass({
     this.setState({annotation: annotation});
   },
   delete: function () {
-    if (confirm("Are you sure?")) {
+    if (confirm("Are you sure you want to delete this annotation?")) {
       data = {id: this.props.params.annotationID};
       ApiUtil.deleteAnnotation(data, function () {
         var speech = document.getElementById('text');
@@ -73,8 +73,10 @@ var AnnotationShow = React.createClass({
     if (this.state.annotation.image_url) {
       image = <img className="annotation-img" src={this.state.annotation.image_url}/>;
     }
+    // var style = {top: '100px'}
+    var style;
     return (
-      <div className="annotation-show-container" onClick={this.preventDefault}>
+      <div className="annotation-show-container" onClick={this.preventDefault} style={style}>
         <h5>SpeechGenius Annotation</h5>
         <div className="annotation-body">
           <div className="annotation-text">
@@ -82,7 +84,9 @@ var AnnotationShow = React.createClass({
           </div>
           {image}
         </div>
-        {delete_button}
+        <div>
+          {delete_button}
+        </div>
         <CommentContainer comments={this.state.annotation.comments}
         handleSubmit={this.handleSubmit} deleteComment={this.deleteComment}/>
       </div>

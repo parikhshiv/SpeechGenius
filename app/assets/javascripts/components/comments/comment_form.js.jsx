@@ -25,8 +25,8 @@ CommentForm = React.createClass({
     }.bind(this));
   },
   render: function () {
-    var image_upload = (this.state.image_url) ? <input type="image-upload" value="Upload Image!" className="image-upload disabled" readOnly/> :
-    <input type="image-upload" value="Upload Image!" onClick={this.image} className="image-upload" readOnly/>;
+    var image_upload = (this.state.image_url) ? <input type="image-upload" value="Image Attached ✓" className="comment-image-upload disabled" readOnly/> :
+    <input type="image-upload" value="Upload An Image!" onClick={this.image} className="comment-image-upload" readOnly/>;
     return (
       <div className="comment-form">
         <form onSubmit={this.handleSubmit}>
@@ -34,8 +34,14 @@ CommentForm = React.createClass({
           placeholder="Suggest an improvement, or add a comment..."
           valueLink={this.linkState('body')}/>
           <br/>
-          <input type="Submit" value="Post comment" readOnly/>
-          {image_upload}
+          <div className="comment-button-container">
+            <div className="comment-submit-button">
+              <input type="Submit" value="Post comment" readOnly/>
+            </div>
+            <div className = "comment-image-upload">
+              {image_upload}
+            </div>
+          </div>
         </form>
       </div>
     )

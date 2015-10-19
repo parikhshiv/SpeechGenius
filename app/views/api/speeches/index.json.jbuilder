@@ -7,8 +7,7 @@ json.array! @speeches do |speech|
     lyrics.each do |line|
       formatted_lyrics << "#{line.strip}.\n\n"
     end
-
-    "#{formatted_lyrics[0...-2]}"
+    "#{formatted_lyrics[0...-5]}"
   end
 
   json.extract! speech, :id, :title, :speaker, :user_id,

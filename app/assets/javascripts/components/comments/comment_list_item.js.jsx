@@ -1,6 +1,6 @@
 var CommentListItem = React.createClass({
   deleteComment: function () {
-    if (confirm("Are you sure?")) {
+    if (confirm("Are you sure you want to delete this comment?")) {
       data = {id: this.props.id};
       this.props.deleteComment(data);
     }
@@ -8,7 +8,7 @@ var CommentListItem = React.createClass({
   render: function () {
     var delete_button; var image;
     if (window.CURRENT_USER_ID === this.props.user_id) {
-      delete_button = <input className="cancel" onClick={this.deleteComment} value="Delete this comment" readOnly/>;
+      delete_button = <input className="cancel" onClick={this.deleteComment} value="Delete Comment" readOnly/>;
     }
     if (this.props.image_url) {
       image = <img className="comment-img" src={this.props.image_url}/>;
@@ -27,7 +27,9 @@ var CommentListItem = React.createClass({
           {this.props.body}
         </div>
         {image}
-        {delete_button}
+        <div>
+          {delete_button}
+        </div>
       </div>
     );
   }

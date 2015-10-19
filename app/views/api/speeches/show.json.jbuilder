@@ -10,7 +10,7 @@ json.extract! @speech, :id, :title, :speaker, :user_id,
       formatted_lyrics << "#{line.strip}.\n\n"
     end
 
-    "#{formatted_lyrics[0...-2]}"
+    "#{formatted_lyrics[0...-5]}"
   end
 json.content lyrics_formatting(@speech.content.split("."))
 json.comments do

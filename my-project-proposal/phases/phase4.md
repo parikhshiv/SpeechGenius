@@ -19,16 +19,14 @@ Rest of Day:
 *Add SEARCH BAR oh no!*
 
 Styling:
+*Annotation text field is staying populated with old annotations - Clear that shit!*
+*Create user button is weird*
 *See if you can seed data with json*
 *Style root page with pictures*
-*input text fields shouldn't change background on hover*
-*Style delete buttons*
-*Style image uploaders*
-*annotation container should show up next to paragraph for showing individual annotations*
 *annotation cancel button is too big*
-*anchor tags?*
 *CAN"T SHOW ANNOTATION IMMEDIATELY AFTER
 CREATING IT*
+*put a background picture on the sign in pages?*
 
 ## Rails
 ### Models

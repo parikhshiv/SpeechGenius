@@ -15,7 +15,14 @@ div.annotation-container {
   background-color: #1F1F1F;
   margin-right: 2%;
   border-left: 2px solid yellow;
+  // position: relative;
 }
+
+// div.annotation-container::after {
+//   clear: both;
+//   content: "";
+//   display: block;
+// }
 
 div.annotation {
   position: fixed;
@@ -25,11 +32,13 @@ div.annotation {
 
 div.annotation-show-container {
   padding: 1%;
-  /*position: fixed;*/
+  max-height: 1000px;
+  overflow: scroll;
+  // position: absolute;
 }
 
 div.annotation-body {
-  padding: 1%;
+  // padding: 1%;
   color: #1B648A;
   font-size: 20px;
 }

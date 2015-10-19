@@ -36,12 +36,16 @@ var SpeechShow = React.createClass({
        commentable_type: "Speech"}));
   },
   newAnnotation: function(e) {
-    if (!document.getElementById('active')) {
-      var selection = window.getSelection();
-      if (selection.toString().trim().length > 0) {
-        this.setState({ link: true });
-      }
+    var selection = window.getSelection();
+    if (!document.getElementById('active') &&
+    selection.toString().trim().length > 0 && !(this.state.redirected)) {
+      this.setState({ link: true });
+    } else {
+      this.setState({link: false, redirected: false});
     }
+  },
+  newAnnotationTimeout: function (e) {
+    setTimeout(this.newAnnotation, 0);
   },
   componentWillReceiveProps: function (nextProps) {
     if (nextProps.params.annotationID && this.state.new) {
@@ -49,12 +53,15 @@ var SpeechShow = React.createClass({
     } else if (nextProps.params.annotationID) {
       this.clearAnnotationLink('redirect');
     }
+    var speechID = nextProps.params.speechID;
+    var speech = this._findSpeechById(speechID) || {} ;
+    this.setState({ speech: speech, link: false, text: speech.content});
   },
   clearAnnotationLink: function (redirect) {
     // debugger;
     var selection = window.getSelection();
     if (selection.toString().trim().length < 1 || redirect === 'redirect') {
-      this.setState({ link: false });
+      this.setState({ link: false, redirected: true });
     }
   },
   handleClick: function () {
@@ -64,8 +71,7 @@ var SpeechShow = React.createClass({
 
     var selection = window.getSelection();
     if (selection.toString().trim().length === 0) {
-      alert("Text must be highlighted to create annotation.");
-      this.clearAnnotationLink;
+      this.clearAnnotationLink();
       return;
     }
     var index = selection.anchorOffset < selection.extentOffset ?
@@ -155,7 +161,7 @@ var SpeechShow = React.createClass({
         <div className="speech-container" onClick={this.clearAnnotationShow}>
           <h1>{this.state.speech.title}</h1>
           <h5>{this.state.speech.speaker}</h5>
-          <div id="text" onMouseUp={this.newAnnotation}
+          <div id="text" onMouseUp={this.newAnnotationTimeout}
             dangerouslySetInnerHTML={{__html: this.state.text}}>
           </div>
           <CommentContainer comments={this.state.speech.comments}

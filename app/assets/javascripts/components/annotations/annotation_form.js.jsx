@@ -1,13 +1,13 @@
 var AnnotationForm = React.createClass({
   mixins: [React.addons.LinkedStateMixin, ReactRouter.History],
   getInitialState: function () {
-    return {content: null, image_url: null};
+    return {content: "", image_url: ""};
   },
   handleSubmit: function () {
     if (this._validated()) {
       this.props.createAnnotation($.extend(this.state,
          {speech_id: this.props.speech.id}));
-      this.setState({content: null, image_url: null})
+      this.setState({content: "", image_url: ""});
     }
   },
   _validated: function () {
@@ -28,6 +28,10 @@ var AnnotationForm = React.createClass({
       this.setState({image_url: image_action.url});
     }.bind(this));
   },
+  cancel: function () {
+    this.setState({content: "", image_url: ""});
+    this.props.cancel();
+  },
   render: function () {
     var hidden = (this.props.visible) ? "" : " hidden";
     var image_upload = (this.state.image_url) ? <input type="image-upload" value="Upload Image!" className="image-upload disabled" readOnly/> :
@@ -39,10 +43,12 @@ var AnnotationForm = React.createClass({
           placeholder="Say something cool!"
           valueLink={this.linkState('content')}/>
           <br/>
-          {image_upload}
+          <div className = "image-upload">
+            {image_upload}
+          </div>
           <br/>
           <input type="Submit" value="Post annotation" readOnly/>
-          <input className="cancel" onClick={this.props.cancel} value="cancel" readOnly/>
+          <input className="cancel" onClick={this.cancel} value="cancel" readOnly/>
         </form>
       </div>
     )
