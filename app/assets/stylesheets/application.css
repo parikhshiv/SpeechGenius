@@ -95,6 +95,12 @@ header > h1 {
   width: 61%;
 }
 
+header.auth > h1 {
+  text-align: center;
+  width: 50%;
+  margin: auto;
+}
+
 .logout, .new-speech {
   min-width: 10%;
   display: inline-block;

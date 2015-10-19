@@ -51,10 +51,13 @@ div.speech-search > input {
   background-color: white;
   height: 30px;
   padding: 0.5%;
+  font-family: 'Fira Sans';
+  font-weight: 200;
+  font-size: 18px;
 }
 
 div.speech-search > input::-webkit-input-placeholder {
-   text-align: left;
+   text-align: center;
    color: black;
 }
 

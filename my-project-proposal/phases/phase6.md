@@ -1,6 +1,6 @@
 Bonus Work (Remaining Time)
 
-7. Bonuses: Cool home page that posts links to different songs, videos at the top of song pages,
+7. Bonuses: Cool home page that posts links to different speakers, who all have their own speaker show page, videos at the top of song pages,
 different genres such as speeches, literature, and word etymologies (the list could go on...).
 8. Forums, blogs, etc.
 

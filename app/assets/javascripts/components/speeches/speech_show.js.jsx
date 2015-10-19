@@ -140,8 +140,10 @@ var SpeechShow = React.createClass({
           title: this.state.speech.title,
           content: document.getElementById('text').innerHTML
         };
+        // debugger;
         ApiUtil.updateSpeech(speaker_params, function () {
           this.setState({new:false, link: false});
+          debugger
           this.props.history.pushState(null, url);
         }.bind(this));
     }.bind(this));

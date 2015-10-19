@@ -71,15 +71,22 @@ ApiUtil = {
     });
   },
   updateSpeech: function (data, callback) {
-    $.ajax({
-      url: "/api/speeches/" + data.id,
-      type: "patch",
-      data: {speech: data},
-      success: function (speech) {
-        callback();
-        ApiActions.receiveSpeeches([speech]);
-      }
-    });
+    // setTimeout(function () {
+      $.ajax({
+        url: "/api/speeches/" + data.id,
+        type: "patch",
+        data: {speech: data},
+        success: function (speech) {
+          console.log('success');
+          callback();
+          ApiActions.receiveSpeeches([speech]);
+        },
+        error: function (speech, msg) {
+          debugger;
+
+        }
+      });
+    // }, 0);
   },
   fetchFilteredSpeeches: function (data) {
     $.get("api/speeches/search", {query: data}, function (speeches) {

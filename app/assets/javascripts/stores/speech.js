@@ -30,7 +30,6 @@
     });
   };
 
-
   var SpeechStore = root.SpeechStore = $.extend({}, EventEmitter.prototype, {
     all: function () {
       return _speeches.slice().sort(function (a, b) {
@@ -44,6 +43,9 @@
           return 1;
         }
       });
+    },
+    clearFilteredSpeeches: function () {
+      _filteredSpeeches = [];
     },
     allFilteredSpeeches: function () {
       return _filteredSpeeches.slice();

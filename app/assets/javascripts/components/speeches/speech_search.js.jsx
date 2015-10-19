@@ -4,7 +4,6 @@ var SpeechSearch = React.createClass({
   },
   componentWillMount: function () {
     SpeechStore.addChangeListener(this._update);
-    // ApiUtil.fetchFilteredSpeeches("");
   },
   componentWillUnmount: function () {
     SpeechStore.removeChangeListener(this._update);
@@ -17,15 +16,13 @@ var SpeechSearch = React.createClass({
     this.setState({search: e.target.value});
   },
   resetSearch: function () {
-    this.setState({search: "", filteredSpeeches: []});
+    SpeechStore.clearFilteredSpeeches();
+    this.setState({search: "", filteredSpeeches: SpeechStore.allFilteredSpeeches()});
   },
-  // _validate: function () {
-
-  // },
   render: function () {
     return (
       <div className="speech-search">
-        <input placeholder={"Search For A Speech..."} type="text"
+        <input placeholder={"Search Speeches..."} type="text"
         value={this.state.search} onChange={this.handleInput}/>
         <SearchResults speeches={this.state.filteredSpeeches} resetSearch={this.resetSearch}/>
       </div>
