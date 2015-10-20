@@ -20,7 +20,8 @@ $(function () {
   React.render((
     <Router>
       <Route path="/" component={App}>
-        <IndexRoute component={SpeechIndex}/>
+        <IndexRoute component={SpeechIndexRight}/>
+        <Route path="about" component={AboutPage}/>
         <Route path="speeches/new" component={SpeechForm}/>
         <Route path="speeches/edit/:speechID" component={SpeechEditForm}/>
         <Route path="annotations/edit/:annotationID" component={AnnotationEditForm}/>

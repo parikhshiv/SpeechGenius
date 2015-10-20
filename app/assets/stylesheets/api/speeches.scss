@@ -12,6 +12,20 @@ div.speech-form > h3 {
   margin-bottom: 0%;
 }
 
+div.speech-image-container {
+  float: right;
+  width: 33%;
+  height: 760px;
+  background-size: cover;
+  background-position: center center;
+  opacity: .2;
+  margin-right: 2%;
+}
+
+div.image-hidden {
+  display: none;
+}
+
 div.speech-index-item {
   border: 1px solid white;
   padding: 10px;
@@ -88,4 +102,31 @@ div.search-result-item:hover {
   -webkit-transition: all .1s;
   -moz-transition: all .1s;
   transition: all .1s;
+}
+
+div.index-bottom {
+  float: left;
+  width: 68%;
+  height: 482px;
+  margin-top: 5%;
+  -webkit-columns: 3;
+  -moz-columns: 3;
+  columns: 3;
+  -webkit-column-rule-style: solid;
+  -moz-column-rule-style: solid;
+  column-rule-style: solid;
+  -webkit-column-gap: 4em;
+  -moz-column-gap: 4em;
+  column-gap: 4em;
+}
+
+div.song-index-bottom {
+  width: 100%;
+  margin: 0px;
+  float: left;
+  column-fill: auto;
+  // -webkit-column-width: 300px;
+  // -webkit-column-gap: 0px;
+  // -webkit-column-fill: auto;
+  padding: 2%;
 }

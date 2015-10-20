@@ -25,8 +25,9 @@ body {
   height: 100%;
 }
 
-::-webkit-input-placeholder {
-
+div.about-page {
+  width: 90%;
+  margin: auto;
 }
 
 div.index {
@@ -108,7 +109,7 @@ header.auth > h1 {
   margin: auto;
 }
 
-.logout, .new-speech {
+.about, .new-speech {
   min-width: 10%;
   display: inline-block;
   text-align: center;
@@ -118,19 +119,39 @@ header.auth > h1 {
   padding: 13px;
 }
 
+.logout {
+  min-width: 10%;
+  display: inline-block;
+  text-align: center;
+  float: right;
+  color: cornflowerblue;
+  background-color: #F5FF64;
+  padding: 13px;
+  font-weight: bold;
+}
+
 .pull-left {
   float: left;
 }
 
-.logout, .new-speech, .home-page {
+.about, .new-speech, .home-page, .logout {
   -webkit-transition: all .3s;
   -moz-transition: all .3s;
   transition: all .3s;
 }
 
-.logout:hover, .new-speech:hover, .home-page:hover{
+.about:hover, .new-speech:hover, .home-page:hover{
   cursor: pointer;
   color: #F5FF64;
+  -webkit-transition: all .3s;
+  -moz-transition: all .3s;
+  transition: all .3s;
+}
+
+.logout:hover {
+  cursor: pointer;
+  color: black;
+  /*background-color: black;*/
   -webkit-transition: all .3s;
   -moz-transition: all .3s;
   transition: all .3s;

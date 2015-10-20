@@ -78,7 +78,6 @@ var AnnotationShow = React.createClass({
     if (this.state.annotation.image_url) {
       image = <img className="annotation-img" src={this.state.annotation.image_url}/>;
     }
-    var style;
     var style = {top: this.state.annotation.pos-250};
     // debugger;
     return (

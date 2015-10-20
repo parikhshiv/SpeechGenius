@@ -158,14 +158,18 @@ var SpeechShow = React.createClass({
     this.props.history.pushState(null, "/speeches/edit/" + this.props.params.speechID);
   },
   render: function () {
-    var hidden= (this.props.params.annotationID) ? "" : " invisible";
+    var hidden = (this.props.params.annotationID) ? "" : " invisible";
+    var imgHidden = (this.props.params.annotationID || this.state.new || this.state.link) ? " image-hidden" : "";
     var delete_button; var edit_button;
     if (window.CURRENT_USER_ID === this.state.speech.user_id) {
       delete_button = <input className="cancel" onClick={this.deleteSpeech} value="Delete Speech" readOnly/>;
       edit_button = <input className="edit" onClick={this.editSpeech} value="Edit Speech" readOnly/>;
     }
+    var style = {backgroundImage: "url(" + this.state.speech.image_url + ")"};
     return(
       <div>
+        <div className={"speech-image-container" + imgHidden} style={style}>
+        </div>
         <div className="speech-container" onClick={this.clearAnnotationShow}>
           <h1>{this.state.speech.title}</h1>
           <h5>{this.state.speech.speaker}</h5>

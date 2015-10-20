@@ -1,4 +1,4 @@
-var SpeechIndex = React.createClass({
+var SpeechIndexBottom = React.createClass({
   getInitialState: function () {
     return {speeches: SpeechStore.all()};
   },
@@ -14,11 +14,10 @@ var SpeechIndex = React.createClass({
   },
   render: function () {
     return (
-      <div className="index">
-        <HeaderAbout/>
-        <div className="song-index">
-          {this.state.speeches.map(function (speech) {
-              return <SpeechIndexItem key={speech.id} {...speech}/>;
+      <div className="index-bottom">
+        <div className="song-index-bottom">
+          {this.state.speeches.slice(3).map(function (speech) {
+              return <SpeechBottomIndexItem key={speech.id} {...speech}/>;
             })
           }
         </div>

@@ -6,7 +6,7 @@
 
   var resetSpeeches = function(speeches){
     _speeches = speeches.slice(0);
-    sort_comments(_speeches);
+    // sort_comments(_speeches);
   };
 
   var resetFilteredSpeeches = function (filteredSpeeches) {
@@ -32,17 +32,18 @@
 
   var SpeechStore = root.SpeechStore = $.extend({}, EventEmitter.prototype, {
     all: function () {
-      return _speeches.slice().sort(function (a, b) {
-        var first = a.title[0].toLowerCase();
-        var second = b.title[0].toLowerCase();
-        if (first < second) {
-          return -1;
-        } else if (first === second) {
-          return 0;
-        } else {
-          return 1;
-        }
-      });
+      return _speeches.slice()
+      // .sort(function (a, b) {
+      //   var first = a.title[0].toLowerCase();
+      //   var second = b.title[0].toLowerCase();
+      //   if (first < second) {
+      //     return -1;
+      //   } else if (first === second) {
+      //     return 0;
+      //   } else {
+      //     return 1;
+      //   }
+      // });
     },
     clearFilteredSpeeches: function () {
       _filteredSpeeches = [];
