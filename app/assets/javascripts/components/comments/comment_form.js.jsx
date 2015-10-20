@@ -7,7 +7,7 @@ CommentForm = React.createClass({
     e.preventDefault();
     if (this._validated()) {
       this.props.handleSubmit(this.state);
-      this.setState({body: ""});
+      this.setState({body: "", image_url: null});
     }
   },
   _validated: function () {

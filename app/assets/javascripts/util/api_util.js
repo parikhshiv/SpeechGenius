@@ -114,5 +114,133 @@ ApiUtil = {
     $.get("api/speeches/search", {query: data}, function (speeches) {
       ApiActions.receiveFilteredSpeeches(speeches);
     });
+  },
+  createAnnotationVote: function (data, callback) {
+    $.post("api/votes", { vote: data }, function (annotation) {
+      callback();
+      ApiActions.receiveAnnotations([annotation]);
+    });
+  },
+  updateAnnotationVote: function (data, callback) {
+    $.ajax({
+      url: "/api/votes/" + data.id,
+      type: "patch",
+      data: {vote: data},
+      success: function (annotation) {
+        callback();
+        ApiActions.receiveAnnotations([annotation]);
+      },
+      error: function (ann, msg) {
+      }
+    });
+  },
+  cancelAnnotationVote: function (data, callback) {
+    $.ajax({
+      url: "/api/votes/" + data.id,
+      type: "delete",
+      data: {id: data.id},
+      success: function (annotation) {
+        callback();
+        ApiActions.receiveAnnotations([annotation]);
+      },
+      error: function (ann, msg) {
+      }
+    });
+  },
+  createSpeechVote: function (data, callback) {
+    $.post("api/votes", { vote: data }, function (speech) {
+      callback();
+      ApiActions.receiveSpeeches([speech]);
+    });
+  },
+  updateSpeechVote: function (data, callback) {
+    $.ajax({
+      url: "/api/votes/" + data.id,
+      type: "patch",
+      data: {vote: data},
+      success: function (speech) {
+        callback();
+        ApiActions.receiveSpeeches([speech]);
+      },
+      error: function (ann, msg) {
+      }
+    });
+  },
+  cancelSpeechVote: function (data, callback) {
+    $.ajax({
+      url: "/api/votes/" + data.id,
+      type: "delete",
+      data: {id: data.id},
+      success: function (speech) {
+        callback();
+        ApiActions.receiveSpeeches([speech]);
+      },
+      error: function (ann, msg) {
+      }
+    });
+  },
+  createSpeechCommentVote: function (data, callback) {
+    $.post("api/votes", { vote: data }, function (speech) {
+      callback();
+      ApiActions.receiveSpeeches([speech]);
+    });
+  },
+  updateSpeechCommentVote: function (data, callback) {
+    $.ajax({
+      url: "/api/votes/" + data.id,
+      type: "patch",
+      data: {vote: data},
+      success: function (speech) {
+        callback();
+        ApiActions.receiveSpeeches([speech]);
+      },
+      error: function (ann, msg) {
+      }
+    });
+  },
+  cancelSpeechCommentVote: function (data, callback) {
+    $.ajax({
+      url: "/api/votes/" + data.id,
+      type: "delete",
+      data: {id: data.id},
+      success: function (speech) {
+        callback();
+        ApiActions.receiveSpeeches([speech]);
+      },
+      error: function (ann, msg) {
+      }
+    });
+  },
+  createAnnotationCommentVote: function (data, callback) {
+    $.post("api/votes", { vote: data }, function (annotation) {
+      callback();
+      ApiActions.receiveAnnotations([annotation]);
+    });
+  },
+  updateAnnotationCommentVote: function (data, callback) {
+    $.ajax({
+      url: "/api/votes/" + data.id,
+      type: "patch",
+      data: {vote: data},
+      success: function (annotation) {
+        callback();
+        ApiActions.receiveAnnotations([annotation]);
+      },
+      error: function (ann, msg) {
+      }
+    });
+  },
+  cancelAnnotationCommentVote: function (data, callback) {
+    $.ajax({
+      url: "/api/votes/" + data.id,
+      type: "delete",
+      data: {id: data.id},
+      success: function (annotation) {
+        callback();
+        ApiActions.receiveAnnotations([annotation]);
+      },
+      error: function (ann, msg) {
+      }
+    });
   }
 };

@@ -25,6 +25,7 @@ var AnnotationShow = React.createClass({
   },
   componentWillReceiveProps: function (nextProps) {
     this._updateAnnotation(nextProps.params.annotationID);
+    // ApiUtil.fetchAnnotations(this.props.params.speechID);
   },
   componentWillUnmount: function () {
     AnnotationStore.removeChangeListener(this._updateAnnotation);
@@ -69,6 +70,48 @@ var AnnotationShow = React.createClass({
     e.preventDefault();
     this.props.history.pushState(null, "/annotations/edit/" + this.props.params.annotationID);
   },
+  upvote: function () {
+    data = {votable_id: this.props.params.annotationID, votable_type: "Annotation", value: 1};
+    ApiUtil.createAnnotationVote(data, function () {
+      ApiUtil.fetchAnnotations(this.props.params.speechID);
+    }.bind(this));
+  },
+  downvote: function () {
+    data = {votable_id: this.props.params.annotationID, votable_type: "Annotation", value: -1};
+    ApiUtil.createAnnotationVote(data, function () {
+      ApiUtil.fetchAnnotations(this.props.params.speechID);
+    }.bind(this));
+  },
+  updateAnnotationVote: function (data) {
+    ApiUtil.updateAnnotationVote(data, function () {
+      ApiUtil.fetchAnnotations(this.props.params.speechID);
+    }.bind(this));
+  },
+  cancelAnnotationVote: function (data) {
+    ApiUtil.cancelAnnotationVote(data, function () {
+      ApiUtil.fetchAnnotations(this.props.params.speechID);
+    }.bind(this));
+  },
+  upvoteComment: function (data) {
+    ApiUtil.createAnnotationCommentVote(data, function () {
+      ApiUtil.fetchAnnotations(this.props.params.speechID);
+    }.bind(this));
+  },
+  downvoteComment: function (data) {
+    ApiUtil.createAnnotationCommentVote(data, function () {
+      ApiUtil.fetchAnnotations(this.props.params.speechID);
+    }.bind(this));
+  },
+  updateCommentVote: function (data) {
+    ApiUtil.updateAnnotationCommentVote(data, function () {
+      ApiUtil.fetchAnnotations(this.props.params.speechID);
+    }.bind(this));
+  },
+  cancelCommentVote: function (data) {
+    ApiUtil.cancelAnnotationCommentVote(data, function () {
+      ApiUtil.fetchAnnotations(this.props.params.speechID);
+    }.bind(this));
+  },
   render: function () {
     var delete_button; var image; var edit_button;
     if (window.CURRENT_USER_ID === this.state.annotation.user_id) {
@@ -89,12 +132,18 @@ var AnnotationShow = React.createClass({
           </div>
           {image}
         </div>
+        <VotingContainer upvote={this.upvote} downvote={this.downvote}
+          updateVote={this.updateAnnotationVote} cancelVote={this.cancelAnnotationVote}
+          votes={this.state.annotation.votes}/>
         <div>
           {edit_button}
           {delete_button}
         </div>
         <CommentContainer comments={this.state.annotation.comments}
-        handleSubmit={this.handleSubmit} deleteComment={this.deleteComment}/>
+        handleSubmit={this.handleSubmit} deleteComment={this.deleteComment}
+        upvote={this.upvoteComment} downvote={this.downvoteComment}
+        updateCommentVote={this.updateCommentVote}
+        cancelCommentVote={this.cancelCommentVote}/>
       </div>
     )
   }

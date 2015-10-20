@@ -3,7 +3,9 @@ var CommentList = React.createClass({
     var list;
     if (this.props.comments) {
       list = this.props.comments.map(function (comment) {
-        return <CommentListItem key={comment.id} deleteComment={this.props.deleteComment} {...comment}/>;
+        return <CommentListItem key={comment.id} deleteComment={this.props.deleteComment}
+          upvote={this.props.upvote} downvote={this.props.downvote} updateCommentVote={this.props.updateCommentVote}
+          cancelCommentVote={this.props.cancelCommentVote} {...comment}/>;
       }.bind(this))
     }
     return(

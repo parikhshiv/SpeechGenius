@@ -1,6 +1,7 @@
 class Api::AnnotationsController < ApplicationController
   def index
-    @annotations = Annotation.all
+    @speech = Speech.find(params[:speech_id])
+    @annotations = @speech.annotations
     render :index
   end
 

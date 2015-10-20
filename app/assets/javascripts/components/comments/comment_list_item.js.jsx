@@ -5,8 +5,22 @@ var CommentListItem = React.createClass({
       this.props.deleteComment(data);
     }
   },
+  upvote: function () {
+    data = {votable_id: this.props.id, votable_type: "Comment", value: 1};
+    this.props.upvote(data);
+  },
+  downvote: function () {
+    data = {votable_id: this.props.id, votable_type: "Comment", value: -1};
+    this.props.downvote(data);
+  },
+  updateCommentVote: function (data) {
+    this.props.updateCommentVote(data);
+  },
+  cancelCommentVote: function (data) {
+    this.props.cancelCommentVote(data);
+  },
   render: function () {
-    var delete_button; var image; 
+    var delete_button; var image;
     if (window.CURRENT_USER_ID === this.props.user_id) {
       delete_button = <input className="cancel" onClick={this.deleteComment} value="Delete Comment" readOnly/>;
     }
@@ -23,6 +37,9 @@ var CommentListItem = React.createClass({
             {this.props.created_at_pretty}
           </div>
         </div>
+        <VotingContainer upvote={this.upvote} downvote={this.downvote}
+          updateVote={this.updateCommentVote} cancelVote={this.cancelCommentVote}
+          votes={this.props.votes}/>
         <div className="comment-body">
           {this.props.body}
         </div>

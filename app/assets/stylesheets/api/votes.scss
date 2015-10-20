@@ -1,3 +1,23 @@
 // Place all the styles related to the votes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+div.voting-container {
+  float: right;
+}
+
+div.voting-container > input {
+  background-color: inherit;
+  border: none;
+  width: inherit;
+  text-align: center;
+}
+
+div.voting-container > input.indented {
+  color: green;
+  // text-shadow: 1px solid black;
+}
+
+div.voting-container > span {
+  font-size: 30px;
+}

@@ -11,14 +11,14 @@ class Api::VotesController < ApplicationController
   end
 
   def destroy
-    @vote = Annotation.find(params[:id])
+    @vote = Vote.find(params[:id])
     @votable = @vote.votable
     @vote.delete
     render :show
   end
 
   def update
-    @vote = Annotation.find(params[:vote][:id])
+    @vote = Vote.find(params[:vote][:id])
     @votable = @vote.votable
     if @vote.update(vote_params)
       render :show

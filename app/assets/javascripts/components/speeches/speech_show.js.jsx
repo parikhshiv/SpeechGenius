@@ -45,7 +45,6 @@ var SpeechShow = React.createClass({
     }
   },
   newAnnotationTimeout: function (e) {
-    // debugger;
     setTimeout(this.newAnnotation.bind(null, e.pageY), 0);
   },
   componentWillReceiveProps: function (nextProps) {
@@ -157,6 +156,48 @@ var SpeechShow = React.createClass({
     e.preventDefault();
     this.props.history.pushState(null, "/speeches/edit/" + this.props.params.speechID);
   },
+  upvote: function () {
+    data = {votable_id: this.props.params.speechID, votable_type: "Speech", value: 1};
+    ApiUtil.createSpeechVote(data, function () {
+      ApiUtil.fetchSpeeches();
+    });
+  },
+  downvote: function () {
+    data = {votable_id: this.props.params.speechID, votable_type: "Speech", value: -1};
+    ApiUtil.createSpeechVote(data, function () {
+      ApiUtil.fetchSpeeches();
+    });
+  },
+  updateSpeechVote: function (data) {
+    ApiUtil.updateSpeechVote(data, function () {
+      ApiUtil.fetchSpeeches();
+    });
+  },
+  cancelSpeechVote: function (data) {
+    ApiUtil.cancelSpeechVote(data, function () {
+      ApiUtil.fetchSpeeches();
+    });
+  },
+  upvoteComment: function (data) {
+    ApiUtil.createSpeechCommentVote(data, function () {
+      ApiUtil.fetchSpeeches();
+    });
+  },
+  downvoteComment: function (data) {
+    ApiUtil.createSpeechCommentVote(data, function () {
+      ApiUtil.fetchSpeeches();
+    });
+  },
+  updateCommentVote: function (data) {
+    ApiUtil.updateSpeechCommentVote(data, function () {
+      ApiUtil.fetchSpeeches();
+    });
+  },
+  cancelCommentVote: function (data) {
+    ApiUtil.cancelSpeechCommentVote(data, function () {
+      ApiUtil.fetchSpeeches();
+    });
+  },
   render: function () {
     var hidden = (this.props.params.annotationID) ? "" : " invisible";
     var imgHidden = (this.props.params.annotationID || this.state.new || this.state.link) ? " image-hidden" : "";
@@ -165,23 +206,32 @@ var SpeechShow = React.createClass({
       delete_button = <input className="cancel" onClick={this.deleteSpeech} value="Delete Speech" readOnly/>;
       edit_button = <input className="edit" onClick={this.editSpeech} value="Edit Speech" readOnly/>;
     }
-    var style = {backgroundImage: "url(" + this.state.speech.image_url + ")"};
+    var style;
+    if (this.state.speech.image_url) {
+      style = {backgroundImage: "url(" + this.state.speech.image_url + ")"};
+    }
     return(
       <div>
         <div className={"speech-image-container" + imgHidden} style={style}>
         </div>
         <div className="speech-container" onClick={this.clearAnnotationShow}>
           <h1>{this.state.speech.title}</h1>
-          <h5>{this.state.speech.speaker}</h5>
-          <div id="text" onMouseUp={this.newAnnotationTimeout}
-            dangerouslySetInnerHTML={{__html: this.state.text}}>
-          </div>
+          <VotingContainer upvote={this.upvote} downvote={this.downvote}
+            updateVote={this.updateSpeechVote} cancelVote={this.cancelSpeechVote}
+            votes={this.state.speech.votes}/>
           <div>
             {edit_button}
             {delete_button}
           </div>
+          <h5>{this.state.speech.speaker}</h5>
+          <div id="text" onMouseUp={this.newAnnotationTimeout}
+            dangerouslySetInnerHTML={{__html: this.state.text}}>
+          </div>
           <CommentContainer comments={this.state.speech.comments}
-          handleSubmit={this.handleSubmit} deleteComment={this.deleteComment}/>
+          handleSubmit={this.handleSubmit} deleteComment={this.deleteComment}
+          upvote={this.upvoteComment} downvote={this.downvoteComment}
+          updateCommentVote={this.updateCommentVote}
+          cancelCommentVote={this.cancelCommentVote}/>
         </div>
         <div className={"annotation-container" + hidden}>
           <AnnotationLink visible={this.state.link} speech={this.state.speech}
