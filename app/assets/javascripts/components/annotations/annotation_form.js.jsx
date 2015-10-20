@@ -3,11 +3,15 @@ var AnnotationForm = React.createClass({
   getInitialState: function () {
     return {content: "", image_url: ""};
   },
-  handleSubmit: function () {
+
+  handleSubmit: function (e) {
+    e.preventDefault();
     if (this._validated()) {
       this.props.createAnnotation($.extend(this.state,
-         {speech_id: this.props.speech.id}));
-      this.setState({content: "", image_url: ""});
+         {speech_id: this.props.speech.id, pos: this.props.pos}));
+      this.setState({content: "", image_url: "", errors: false});
+    } else {
+      this.setState({errors: true});
     }
   },
   _validated: function () {
@@ -29,12 +33,16 @@ var AnnotationForm = React.createClass({
     }.bind(this));
   },
   cancel: function () {
-    this.setState({content: "", image_url: ""});
+    this.setState({content: "", image_url: "", errors: false});
     this.props.cancel();
   },
   render: function () {
+    var errors;
+    if (this.state.errors) {
+      errors = "Please enter an annotation.";
+    }
     var hidden = (this.props.visible) ? "" : " hidden";
-    var image_upload = (this.state.image_url) ? <input type="image-upload" value="Upload Image!" className="image-upload disabled" readOnly/> :
+    var image_upload = (this.state.image_url) ? <input type="image-upload" value="Image Attached ✓" className="image-upload disabled" readOnly/> :
     <input type="image-upload" value="Upload Image!" onClick={this.image} className="image-upload" readOnly/>;
     return (
       <div className={"annotation" + hidden}>
@@ -42,13 +50,14 @@ var AnnotationForm = React.createClass({
           <textarea rows='5' cols='20'
           placeholder="Say something cool!"
           valueLink={this.linkState('content')}/>
-          <br/>
-          <div className = "image-upload">
+          <h4 className="errors">{errors}</h4>
+          <input type="Submit" value="Post annotation" readOnly/>
+          <div className = "annotation-image-upload">
             {image_upload}
           </div>
-          <br/>
-          <input type="Submit" value="Post annotation" readOnly/>
-          <input className="cancel" onClick={this.cancel} value="cancel" readOnly/>
+          <div>
+            <input className="cancel" onClick={this.cancel} value="cancel" readOnly/>
+          </div>
         </form>
       </div>
     )

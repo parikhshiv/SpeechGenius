@@ -38,7 +38,12 @@ class Api::SpeechesController < ApplicationController
    end
 
    render :search
- end
+  end
+  def destroy
+   @speech = Speech.find(params[:id])
+   @speech.delete
+   render :show
+  end
 
   private
 

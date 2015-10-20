@@ -14,11 +14,15 @@
  *= require_self
  */
 
+html {
+  height: 100%;
+}
 body {
   font-family: 'Fira Sans';
   color: white;
   background-color: black;
   margin: 0px;
+  height: 100%;
 }
 
 ::-webkit-input-placeholder {
@@ -31,6 +35,7 @@ div.index {
 
 div.song-index {
   float: right;
+  width: 24%;
 }
 
 div.header-about-img {
@@ -45,9 +50,10 @@ div.header-about-img {
 }
 
 div.header-about {
-  width: 50%;
-  height: 300px;
   float: left;
+  width: 68%;
+  height: 585px;
+  margin-top: 1%;
 }
 
 div.header-about > h1 {
@@ -90,9 +96,10 @@ header.pull-right {
 
 header > h1 {
   text-align: center;
+  margin: auto;
   margin-top: 0px;
   margin-bottom: 0px;
-  width: 61%;
+  width: 18%;
 }
 
 header.auth > h1 {
@@ -156,6 +163,7 @@ div.text {
 #text {
   white-space: pre-wrap;
   line-height: 27px;
+  margin-bottom: 3%;
 }
 
 .hidden {
@@ -199,9 +207,24 @@ input.cancel {
   transition: all .1s;
 }
 
+input.edit {
+  background-color: inherit;
+  border: none;
+  -webkit-transition: all .1s;
+  -moz-transition: all .1s;
+  transition: all .1s;
+}
+
+input.edit:hover {
+  color: green;
+  -webkit-transition: all .1s;
+  -moz-transition: all .1s;
+  transition: all .1s;
+}
+
 div.invisible {
   float: right;
-  width: 28%;
+  width: 34%;
   padding: 3%;
   background-color: black;
   margin-right: 2%;

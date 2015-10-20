@@ -1,11 +1,8 @@
 # Phase 5: Votes (1 days)
 
-*you really shouldn't be able to hit the back button all the way to the login page, even
-after you already logged in*
-*add anchor tags to annotations*
-*Add update functions to everything but speeches*
-*First thooo: UPDATE functions to
-current user's annotations and comments*
+*After voting - replace log out button with dope about page, and put log out in top right of navbar.
+Keep first six speeches on right, and populate the area beneath Che with the rest of the speeches.*
+*put background pictures on speech show pages*
 
 ## Rails
 ### Models

@@ -6,7 +6,8 @@ Rails.application.routes.draw do
       get "search", on: :collection
     end
     resources :comments, :only => [:new, :create, :show, :index, :destroy]
-    resources :annotations, :only => [:new, :create, :show, :index, :destroy]
+    resources :votes, :only => [:create, :update, :destroy]
+    resources :annotations, :only => [:new, :create, :show, :index, :destroy, :update]
   end
 
   root :to => "users#new"

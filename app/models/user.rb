@@ -22,6 +22,7 @@ class User < ActiveRecord::Base
   has_many :speeches
   has_many :comments
   has_many :annotations
+  has_many :votes
 
   def self.find_by_credentials(email, password)
     user = User.find_by_email(email)

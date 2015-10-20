@@ -35,17 +35,18 @@ var SpeechShow = React.createClass({
       {commentable_id: this.props.params.speechID,
        commentable_type: "Speech"}));
   },
-  newAnnotation: function(e) {
+  newAnnotation: function(pageY) {
     var selection = window.getSelection();
     if (!document.getElementById('active') &&
     selection.toString().trim().length > 0 && !(this.state.redirected)) {
-      this.setState({ link: true });
+      this.setState({ link: true, pos: pageY });
     } else {
       this.setState({link: false, redirected: false});
     }
   },
   newAnnotationTimeout: function (e) {
-    setTimeout(this.newAnnotation, 0);
+    // debugger;
+    setTimeout(this.newAnnotation.bind(null, e.pageY), 0);
   },
   componentWillReceiveProps: function (nextProps) {
     if (nextProps.params.annotationID && this.state.new) {
@@ -58,7 +59,6 @@ var SpeechShow = React.createClass({
     this.setState({ speech: speech, link: false, text: speech.content});
   },
   clearAnnotationLink: function (redirect) {
-    // debugger;
     var selection = window.getSelection();
     if (selection.toString().trim().length < 1 || redirect === 'redirect') {
       this.setState({ link: false, redirected: true });
@@ -79,18 +79,11 @@ var SpeechShow = React.createClass({
     var length = selection.toString().length;
     var add_on = text.indexOf(selection.anchorNode.data);
     var substring = text.substring(index + add_on, index + length + add_on);
-    // debugger;
     if (text.indexOf(selection) === -1) {
       alert("CAN'T ANNOTATE ON TOP OF EXISTING ANNOTATIONS");
       this.setState({ link: false });
       return;
     }
-    // if (this._checkForExistingAnnotations(substring)) {
-    //   alert("CAN'T ANNOTATE ON TOP OF EXISTING ANNOTATIONS");
-    //   this.setState({ link: false });
-    //   return;
-    // }
-
     if (substring[substring.length-1] === "<") {
       alert("Click and drag to start annotations.");
       this.setState({ link: false });
@@ -106,9 +99,6 @@ var SpeechShow = React.createClass({
     speech.innerHTML = array.join('');
     this.setState({new: true, link: false});
 
-  },
-  _checkForExistingAnnotations: function (selection) {
-    return /<[a-z][\s\S]*>/i.test(selection);
   },
   cancel: function () {
     var speech = document.getElementById('text');
@@ -140,10 +130,9 @@ var SpeechShow = React.createClass({
           title: this.state.speech.title,
           content: document.getElementById('text').innerHTML
         };
-        // debugger;
+
         ApiUtil.updateSpeech(speaker_params, function () {
           this.setState({new:false, link: false});
-          debugger
           this.props.history.pushState(null, url);
         }.bind(this));
     }.bind(this));
@@ -156,8 +145,25 @@ var SpeechShow = React.createClass({
   deleteComment: function (data) {
     ApiUtil.deleteSpeechComment(data);
   },
+  deleteSpeech: function () {
+    if (confirm("Are you sure you want to delete this entire speech? WARNING: You will lose all data associated with it.")) {
+      data = {id: this.state.speech.id};
+      ApiUtil.deleteSpeech(data, function () {
+        this.props.history.pushState(null, "/");
+      }.bind(this));
+    }
+  },
+  editSpeech: function (e) {
+    e.preventDefault();
+    this.props.history.pushState(null, "/speeches/edit/" + this.props.params.speechID);
+  },
   render: function () {
     var hidden= (this.props.params.annotationID) ? "" : " invisible";
+    var delete_button; var edit_button;
+    if (window.CURRENT_USER_ID === this.state.speech.user_id) {
+      delete_button = <input className="cancel" onClick={this.deleteSpeech} value="Delete Speech" readOnly/>;
+      edit_button = <input className="edit" onClick={this.editSpeech} value="Edit Speech" readOnly/>;
+    }
     return(
       <div>
         <div className="speech-container" onClick={this.clearAnnotationShow}>
@@ -166,6 +172,10 @@ var SpeechShow = React.createClass({
           <div id="text" onMouseUp={this.newAnnotationTimeout}
             dangerouslySetInnerHTML={{__html: this.state.text}}>
           </div>
+          <div>
+            {edit_button}
+            {delete_button}
+          </div>
           <CommentContainer comments={this.state.speech.comments}
           handleSubmit={this.handleSubmit} deleteComment={this.deleteComment}/>
         </div>
@@ -173,7 +183,7 @@ var SpeechShow = React.createClass({
           <AnnotationLink visible={this.state.link} speech={this.state.speech}
             handleClick={this.handleClick}/>
           <AnnotationForm visible={this.state.new} speech={this.state.speech}
-            cancel={this.cancel} createAnnotation={this.createAnnotation}/>
+            cancel={this.cancel} createAnnotation={this.createAnnotation} pos={this.state.pos}/>
           {this.props.children}
         </div>
       </div>

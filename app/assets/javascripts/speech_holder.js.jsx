@@ -22,6 +22,8 @@ $(function () {
       <Route path="/" component={App}>
         <IndexRoute component={SpeechIndex}/>
         <Route path="speeches/new" component={SpeechForm}/>
+        <Route path="speeches/edit/:speechID" component={SpeechEditForm}/>
+        <Route path="annotations/edit/:annotationID" component={AnnotationEditForm}/>
         <Route path="speeches/:speechID" component={SpeechShow}>
           // <Route path="annotations/link" components={AnnotationLink}/>
           // <Route path="annotations/new" components={AnnotationForm}/>

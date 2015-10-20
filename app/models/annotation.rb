@@ -9,13 +9,15 @@
 #  image_url  :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  pos        :integer          not null
 #
 
 class Annotation < ActiveRecord::Base
-  validates :content, :user_id, :speech_id, null: false
+  validates :content, :user_id, :speech_id, :pos, null: false
 
   belongs_to :speech
   belongs_to :user
 
   has_many :comments, as: :commentable, dependent: :destroy
+  has_many :votes, as: :votable, dependent: :destroy
 end

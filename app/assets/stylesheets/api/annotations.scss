@@ -10,31 +10,35 @@ header {
 
 div.annotation-container {
   float: right;
-  width: 28%;
-  padding: 3%;
-  background-color: #1F1F1F;
-  margin-right: 2%;
-  border-left: 2px solid yellow;
-  // position: relative;
+  width: 34%;
+
+  position: relative;
 }
 
-// div.annotation-container::after {
-//   clear: both;
-//   content: "";
-//   display: block;
-// }
+div.annotation-container::after {
+  clear: both;
+  content: "";
+  display: block;
+}
 
 div.annotation {
   position: fixed;
   border-left: 2px solid yellow;
   padding-left: 2%;
+  bottom: 50%;
+  right: 10%;
+  width: 20%;
 }
 
 div.annotation-show-container {
   padding: 1%;
   max-height: 1000px;
-  overflow: scroll;
-  // position: absolute;
+  width: 75%;
+  position: absolute;
+  padding: 3%;
+  background-color: #1F1F1F;
+  margin-right: 2%;
+  border-left: 2px solid yellow;
 }
 
 div.annotation-body {
@@ -73,6 +77,8 @@ div.annotation-link {
   padding: 10px;
   border-left: 2px solid yellow;
   position: fixed;
+  bottom: 50%;
+  right: 10%;
 }
 
 button.annotation-link:hover {
@@ -81,4 +87,42 @@ button.annotation-link:hover {
   -webkit-transition: all .2s;
   -moz-transition: all .2s;
   transition: all .2s;
+}
+
+div.annotation-image-upload {
+  float: right;
+  width: 100%;
+  margin: 2% 1% 0% 0%;
+}
+
+div.annotation-image-upload > input {
+  font-size: 16px;
+  width: 43%;
+  margin-left: 1%;
+  float: left;
+  background-color: inherit;
+  border: none;
+  color: #A5A2A2;
+  -webkit-transition: all .1s;
+  -moz-transition: all .1s;
+  transition: all .1s;
+}
+
+div.annotation-image-upload > input:hover{
+  color: white;
+  -webkit-transition: all .1s;
+  -moz-transition: all .1s;
+  transition: all .1s;
+}
+
+div.annotation-image-upload > input.disabled {
+  background-color: black;
+  color: #16CE16;
+  font-weight: 200;
+  font-size: 16px;
+}
+
+div.annotation-image-upload > input.disabled:hover {
+  background-color: black;
+  cursor: default;
 }

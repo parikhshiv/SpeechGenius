@@ -67,26 +67,48 @@ ApiUtil = {
       data: {id: data.id},
       success: function () {
         callback();
+      },
+      error: function (ann, msg) {
+      }
+    });
+  },
+  updateAnnotation: function (data, callback) {
+    $.ajax({
+      url: "/api/annotations/" + data.id,
+      type: "patch",
+      data: {annotation: data},
+      success: function (annotation) {
+        callback();
+        ApiActions.receiveAnnotations([annotation]);
+      },
+      error: function (speech, msg) {
+
       }
     });
   },
   updateSpeech: function (data, callback) {
-    // setTimeout(function () {
-      $.ajax({
-        url: "/api/speeches/" + data.id,
-        type: "patch",
-        data: {speech: data},
-        success: function (speech) {
-          console.log('success');
-          callback();
-          ApiActions.receiveSpeeches([speech]);
-        },
-        error: function (speech, msg) {
-          debugger;
+    $.ajax({
+      url: "/api/speeches/" + data.id,
+      type: "patch",
+      data: {speech: data},
+      success: function (speech) {
+        callback();
+        ApiActions.receiveSpeeches([speech]);
+      },
+      error: function (speech, msg) {
 
-        }
-      });
-    // }, 0);
+      }
+    });
+  },
+  deleteSpeech: function (data, callback) {
+    $.ajax({
+      url: "/api/speeches/" + data.id,
+      type: "delete",
+      data: {id: data.id},
+      success: function (speech) {
+        callback();
+      }
+    });
   },
   fetchFilteredSpeeches: function (data) {
     $.get("api/speeches/search", {query: data}, function (speeches) {

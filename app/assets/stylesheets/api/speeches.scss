@@ -41,7 +41,7 @@ div.speech-container{
 div.speech-search {
   float:left;
   margin-top: 0.5%;
-  width: 40%;
+  width: 20%;
   margin-left: 1%;
   max-height: 44px;
 }
@@ -54,6 +54,7 @@ div.speech-search > input {
   font-family: 'Fira Sans';
   font-weight: 200;
   font-size: 18px;
+  width: 100%;
 }
 
 div.speech-search > input::-webkit-input-placeholder {

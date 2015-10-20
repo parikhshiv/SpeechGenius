@@ -1,4 +1,4 @@
-CommentForm = React.createClass({
+var CommentEditForm = React.createClass({
   mixins: [React.addons.LinkedStateMixin],
   getInitialState: function () {
     return {body: null, image_url: null};
@@ -48,5 +48,3 @@ CommentForm = React.createClass({
     )
   }
 });
-
-// data-fp-maxsize="4"

@@ -9,6 +9,7 @@
 #  image_url  :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  pos        :integer          not null
 #
 
 require 'test_helper'

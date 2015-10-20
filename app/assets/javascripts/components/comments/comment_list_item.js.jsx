@@ -6,7 +6,7 @@ var CommentListItem = React.createClass({
     }
   },
   render: function () {
-    var delete_button; var image;
+    var delete_button; var image; 
     if (window.CURRENT_USER_ID === this.props.user_id) {
       delete_button = <input className="cancel" onClick={this.deleteComment} value="Delete Comment" readOnly/>;
     }

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151016215324) do
+ActiveRecord::Schema.define(version: 20151020002518) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20151016215324) do
     t.string   "image_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "pos",        null: false
   end
 
   add_index "annotations", ["speech_id"], name: "index_annotations_on_speech_id", using: :btree
@@ -62,5 +63,17 @@ ActiveRecord::Schema.define(version: 20151016215324) do
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+
+  create_table "votes", force: :cascade do |t|
+    t.integer  "user_id",      null: false
+    t.integer  "votable_id",   null: false
+    t.string   "votable_type", null: false
+    t.integer  "value",        null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "votes", ["votable_id", "user_id"], name: "index_votes_on_votable_id_and_user_id", unique: true, using: :btree
+  add_index "votes", ["votable_id"], name: "index_votes_on_votable_id", using: :btree
 
 end

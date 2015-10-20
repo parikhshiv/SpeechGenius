@@ -1,7 +1,5 @@
 class Api::AnnotationsController < ApplicationController
   def index
-    # @speech = Speech.find(params[:speech_id])
-    # @annotations = @speech.annotations
     @annotations = Annotation.all
     render :index
   end
@@ -27,9 +25,20 @@ class Api::AnnotationsController < ApplicationController
     render json: @annotation
   end
 
+  def update
+    @annotation = Annotation.find(params[:annotation][:id])
+    if @annotation.update(annotation_params)
+      render :show
+    else
+      flash[:errors] = @annotation.errors.full_messages
+      render json: @annotation, status: :unprocessable_entity
+    end
+  end
+
+
   private
 
   def annotation_params
-    params.require(:annotation).permit(:content, :speech_id, :image_url)
+    params.require(:annotation).permit(:content, :speech_id, :image_url, :pos)
   end
 end
