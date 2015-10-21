@@ -42,16 +42,30 @@ div.speech-index-item {
 div.speech-bottom-index-item {
   border: 1px solid white;
   padding: 10px;
-  width: 26%;
-  min-height: 75px;
-  margin: 1% 2%;
+  width: 28%;
+  min-height: 85px;
+  max-height: 100px;
+  margin: 1% 1%;
   -webkit-transition: all .3s;
   -moz-transition: all .3s;
   transition: all .3s;
   float: left;
   text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+  vertical-align: -webkit-baseline-middle;
   // width: 300px;
   // -webkit-column-break-inside: avoid;
+  // position: relative;
+}
+
+div.speech-bottom-index-item > span, div.speech-bottom-index-item > strong{
+  margin-top: 50%;
+  vertical-align: middle;
+  vertical-align: -webkit-baseline-middle;
+  // position: absolute;
+  // top: 50%;
+  // transform: translate(0, -50%);
 }
 
 img.bottom-speech-img {
@@ -133,16 +147,15 @@ div.index-bottom {
   float: left;
   width: 68%;
   height: 482px;
-  margin-bottom: 1%;
+  margin: 1% 0%;
 }
 
 div.song-index-bottom {
-  width: 96%;
+  width: 100%;
   margin: 0px;
   float: left;
   column-fill: auto;
   // -webkit-column-width: 300px;
   // -webkit-column-gap: 0px;
   // -webkit-column-fill: auto;
-  padding: 2%;
 }

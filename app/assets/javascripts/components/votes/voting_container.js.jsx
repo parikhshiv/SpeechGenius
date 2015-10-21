@@ -45,15 +45,16 @@ var VotingContainer = React.createClass({
         upIndented = " indented";
         onClick = this.cancelVote;
       } else {
-        downIndented = " indented";
+        downIndented = " down-indented";
         onDownClick = this.cancelVote;
       }
     }
+    var votingClass = (this.props.speech) ? "speech-voting-container" : "voting-container"
     return (
-      <div className="voting-container">
-        <input className={"upvote" + upIndented} onClick={onClick} value="Upvote!" readOnly/>
+      <div className={votingClass}>
+        <input className={"upvote" + upIndented} onClick={onClick} value="⬆" readOnly/>
         {value}
-        <input className={"downvote" + downIndented} onClick={onDownClick} value="Downvote!" readOnly/>
+        <input className={"downvote" + downIndented} onClick={onDownClick} value="⬇" readOnly/>
       </div>
     )
   }

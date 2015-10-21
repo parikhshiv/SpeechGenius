@@ -31,6 +31,6 @@ class Speech < ActiveRecord::Base
     # end
     #
     # "#{formatted_lyrics[0...-5]}"
-    lyrics.join(".")
+    lyrics
   end
 end

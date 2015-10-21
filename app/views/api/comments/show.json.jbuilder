@@ -1,7 +1,7 @@
 if @commentable.class == Speech
   json.extract! @commentable, :id, :title, :speaker, :user_id,
       :created_at, :updated_at, :image_url
-  json.content Speech.lyrics_formatting(@commentable.content.split("."))
+  json.content Speech.lyrics_formatting(@commentable.content)
   json.votes do
     json.partial! 'api/votes/vote', collection: @commentable.votes, as: :vote
   end

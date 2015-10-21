@@ -4,20 +4,31 @@
 
 div.voting-container {
   float: right;
+  text-align: right;
 }
 
-div.voting-container > input {
+div.speech-voting-container {
+  float: right;
+  font-size: larger;
+}
+
+div.voting-container > input, div.speech-voting-container > input {
   background-color: inherit;
   border: none;
-  width: inherit;
+  width: 15%;
   text-align: center;
+  font-size: larger;
 }
 
-div.voting-container > input.indented {
-  color: green;
-  // text-shadow: 1px solid black;
+div.voting-container > input.indented, div.speech-voting-container > input.indented{
+  color: #03B003;
 }
 
-div.voting-container > span {
+
+div.voting-container > input.down-indented, div.speech-voting-container > input.down-indented {
+  color: #FA4A4A;
+}
+
+div.voting-container > span, div.speech-voting-container > span {
   font-size: 30px;
 }

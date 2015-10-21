@@ -223,7 +223,7 @@ var SpeechShow = React.createClass({
           <h1>{this.state.speech.title}</h1>
           <VotingContainer upvote={this.upvote} downvote={this.downvote}
             updateVote={this.updateSpeechVote} cancelVote={this.cancelSpeechVote}
-            votes={this.state.speech.votes}/>
+            votes={this.state.speech.votes} speech={true}/>
           <div>
             {edit_button}
             {delete_button}

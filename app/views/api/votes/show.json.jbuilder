@@ -1,7 +1,7 @@
 if @votable.class == Speech
   json.extract! @votable, :id, :title, :speaker, :user_id,
       :created_at, :updated_at, :image_url
-  json.content Speech.lyrics_formatting(@votable.content.split("."))
+  json.content Speech.lyrics_formatting(@votable.content)
   json.comments do
     json.partial! 'api/comments/comment', collection: @votable.comments, as: :comment
   end
@@ -20,7 +20,7 @@ elsif @votable.class == Annotation
 elsif @votable.commentable.class == Speech
   json.extract! @votable.commentable, :id, :title, :speaker, :user_id,
       :created_at, :updated_at, :image_url
-  json.content Speech.lyrics_formatting(@votable.commentable.content.split("."))
+  json.content Speech.lyrics_formatting(@votable.commentable.content)
   json.comments do
     json.partial! 'api/comments/comment', collection: @votable.commentable.comments, as: :comment
   end
