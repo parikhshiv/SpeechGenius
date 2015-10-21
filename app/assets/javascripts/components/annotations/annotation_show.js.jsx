@@ -143,10 +143,12 @@ var AnnotationShow = React.createClass({
           </div>
           {image}
         </div>
-        <VotingContainer upvote={this.upvote} downvote={this.downvote}
-          updateVote={this.updateAnnotationVote} cancelVote={this.cancelAnnotationVote}
-          votes={this.state.annotation.votes}/>
         <div>
+          <VotingContainer upvote={this.upvote} downvote={this.downvote}
+            updateVote={this.updateAnnotationVote} cancelVote={this.cancelAnnotationVote}
+            votes={this.state.annotation.votes}/>
+        </div>
+        <div className="edit-and-delete-buttons">
           {edit_button}
           {delete_button}
         </div>
