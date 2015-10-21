@@ -10,7 +10,7 @@
 
   var sort_comments = function (commentable) {
     commentable.forEach(function (speech) {
-      return speech.comments.sort(function (a, b) {
+      var comments = speech.comments.sort(function (a, b) {
         var first = a.created_at;
         var second = b.created_at;
         if (first < second) {
@@ -21,7 +21,26 @@
           return -1;
         }
       });
+      return comments.sort(vote_sort);
     });
+  };
+
+  var vote_sort = function (a, b) {
+    var first = 0;
+    var second = 0;
+    a.votes.forEach(function (vote) {
+      first += vote.value;
+    });
+    b.votes.forEach(function (vote) {
+      second += vote.value;
+    });
+    if (first < second) {
+      return 1;
+    } else if (first === second) {
+      return 0;
+    } else {
+      return -1;
+    }
   };
 
   var AnnotationStore = root.AnnotationStore = $.extend({}, EventEmitter.prototype, {

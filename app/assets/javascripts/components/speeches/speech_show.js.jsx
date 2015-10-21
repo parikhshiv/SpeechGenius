@@ -36,6 +36,7 @@ var SpeechShow = React.createClass({
        commentable_type: "Speech"}));
   },
   newAnnotation: function(pageY) {
+    // debugger;
     var selection = window.getSelection();
     if (!document.getElementById('active') &&
     selection.toString().trim().length > 0 && !(this.state.redirected)) {
@@ -48,6 +49,7 @@ var SpeechShow = React.createClass({
     setTimeout(this.newAnnotation.bind(null, e.pageY), 0);
   },
   componentWillReceiveProps: function (nextProps) {
+    // debugger;
     if (nextProps.params.annotationID && this.state.new) {
       this.cancel();
     } else if (nextProps.params.annotationID) {
@@ -58,10 +60,29 @@ var SpeechShow = React.createClass({
     this.setState({ speech: speech, link: false, text: speech.content});
   },
   clearAnnotationLink: function (redirect) {
+    // debugger;
     var selection = window.getSelection();
-    if (selection.toString().trim().length < 1 || redirect === 'redirect') {
+    if (redirect === 'redirect') {
       this.setState({ link: false, redirected: true });
+    } else if (selection.toString().trim().length < 1) {
+      this.setState({ link: false});
     }
+  },
+  cancel: function () {
+    var speech = document.getElementById('text');
+    var text = speech.innerHTML;
+    var selection = document.getElementById('active');
+    var array = text.split('');
+
+    // GET STRING OF SELECTION
+    var el = document.createElement("div");
+    el.appendChild(selection);
+
+    var string = el.innerHTML;
+    var length = string.length;
+    array.splice(text.indexOf(string), length, selection.innerHTML);
+    speech.innerHTML = array.join('');
+    this.setState({new: false, link: false});
   },
   handleClick: function () {
     var speech = document.getElementById('text');
@@ -99,22 +120,6 @@ var SpeechShow = React.createClass({
     this.setState({new: true, link: false});
 
   },
-  cancel: function () {
-    var speech = document.getElementById('text');
-    var text = speech.innerHTML;
-    var selection = document.getElementById('active');
-    var array = text.split('');
-
-    // GET STRING OF SELECTION
-    var el = document.createElement("div");
-    el.appendChild(selection);
-
-    var string = el.innerHTML;
-    var length = string.length;
-    array.splice(text.indexOf(string), length, selection.innerHTML);
-    speech.innerHTML = array.join('');
-    this.setState({new: false, link: false});
-  },
   createAnnotation: function (data) {
     ApiUtil.createAnnotation(data, function (annotation_id) {
         var text_link = document.getElementById('active');
@@ -136,8 +141,8 @@ var SpeechShow = React.createClass({
         }.bind(this));
     }.bind(this));
   },
-  clearAnnotationShow: function () {
-    if (this.props.params.annotationID) {
+  clearAnnotationShow: function (e) {
+    if (this.props.params.annotationID && e.target.className !== "annotation-link") {
       this.props.history.pushState(null, "/speeches/" + this.props.params.speechID);
     }
   },

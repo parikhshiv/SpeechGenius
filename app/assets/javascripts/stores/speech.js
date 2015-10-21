@@ -6,7 +6,18 @@
 
   var resetSpeeches = function(speeches){
     _speeches = speeches.slice(0);
-    // sort_comments(_speeches);
+    _speeches = _speeches.sort(function (a, b) {
+      var first = a.title[0].toLowerCase();
+      var second = b.title[0].toLowerCase();
+      if (first < second) {
+        return -1;
+      } else if (first === second) {
+        return 0;
+      } else {
+        return 1;
+      }
+    });
+    sort_comments(_speeches);
   };
 
   var resetFilteredSpeeches = function (filteredSpeeches) {
@@ -16,7 +27,7 @@
 
   var sort_comments = function (commentable) {
     commentable.forEach(function (speech) {
-      return speech.comments.sort(function (a, b) {
+      var comments = speech.comments.sort(function (a, b) {
         var first = a.created_at;
         var second = b.created_at;
         if (first < second) {
@@ -27,23 +38,31 @@
           return -1;
         }
       });
+      return comments.sort(vote_sort);
     });
+  };
+
+  var vote_sort = function (a, b) {
+    var first = 0;
+    var second = 0;
+    a.votes.forEach(function (vote) {
+      first += vote.value;
+    });
+    b.votes.forEach(function (vote) {
+      second += vote.value;
+    });
+    if (first < second) {
+      return 1;
+    } else if (first === second) {
+      return 0;
+    } else {
+      return -1;
+    }
   };
 
   var SpeechStore = root.SpeechStore = $.extend({}, EventEmitter.prototype, {
     all: function () {
-      return _speeches.slice()
-      // .sort(function (a, b) {
-      //   var first = a.title[0].toLowerCase();
-      //   var second = b.title[0].toLowerCase();
-      //   if (first < second) {
-      //     return -1;
-      //   } else if (first === second) {
-      //     return 0;
-      //   } else {
-      //     return 1;
-      //   }
-      // });
+      return _speeches.slice().sort(vote_sort);
     },
     clearFilteredSpeeches: function () {
       _filteredSpeeches = [];

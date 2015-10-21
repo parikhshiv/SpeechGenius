@@ -22,14 +22,15 @@ class Speech < ActiveRecord::Base
   has_many :annotations, dependent: :destroy
 
   def self.lyrics_formatting(lyrics)
-    if lyrics[-2] && (lyrics[-2].include?("\n\n"))
-      return lyrics.join(".")
-    end
-    formatted_lyrics = ""
-    lyrics.each do |line|
-      formatted_lyrics << "#{line.strip}.\n\n"
-    end
-
-    "#{formatted_lyrics[0...-5]}"
+    # if lyrics[-2] && (lyrics[-2].include?("\n\n"))
+    #   return lyrics.join(".")
+    # end
+    # formatted_lyrics = ""
+    # lyrics.each do |line|
+    #   formatted_lyrics << "#{line.strip}.\n\n"
+    # end
+    #
+    # "#{formatted_lyrics[0...-5]}"
+    lyrics.join(".")
   end
 end

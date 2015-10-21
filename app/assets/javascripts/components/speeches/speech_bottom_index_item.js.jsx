@@ -7,10 +7,10 @@ var SpeechBottomIndexItem = React.createClass({
   render: function () {
     var image;
     if (this.props.image_url) {
-      image = <img className="speech-img" src={this.props.image_url}/>;
+      image = <img className="bottom-speech-img" src={this.props.image_url}/>;
     }
     return (
-      <div onClick={this.onClick} className="speech-index-item">
+      <div onClick={this.onClick} className="speech-bottom-index-item">
         <strong>{this.props.title}</strong> - {this.props.speaker}
       </div>
     );

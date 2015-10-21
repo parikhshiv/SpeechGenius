@@ -29,6 +29,7 @@ gem 'better_errors'
 gem 'newrelic_rpm'
 gem 'react-rails', '~> 1.3.0'
 gem 'flux-rails-assets'
+gem 'seed_dump'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

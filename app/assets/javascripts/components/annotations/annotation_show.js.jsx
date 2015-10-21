@@ -122,7 +122,7 @@ var AnnotationShow = React.createClass({
       image = <img className="annotation-img" src={this.state.annotation.image_url}/>;
     }
     var style = {top: this.state.annotation.pos-250};
-    // debugger;
+    // use window.innerHeight and window.innerWidth to scale this
     return (
       <div className="annotation-show-container" onClick={this.preventDefault} style={style}>
         <h5>SpeechGenius Annotation</h5>

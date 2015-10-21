@@ -32,7 +32,8 @@ var AnnotationForm = React.createClass({
       this.setState({image_url: image_action.url});
     }.bind(this));
   },
-  cancel: function () {
+  cancel: function (e) {
+    e.preventDefault();
     this.setState({content: "", image_url: "", errors: false});
     this.props.cancel();
   },

@@ -1,8 +1,6 @@
 # Phase 5: Votes (1 days)
 
-*After voting - replace log out button with dope about page, and put log out in top right of navbar.
-Keep first six speeches on right, and populate the area beneath Che with the rest of the speeches.*
-*put background pictures on speech show pages*
+*divide by window height for annotations show position*
 
 ## Rails
 ### Models

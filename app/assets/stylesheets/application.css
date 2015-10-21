@@ -36,7 +36,7 @@ div.index {
 
 div.song-index {
   float: right;
-  width: 24%;
+  width: 26%;
 }
 
 div.header-about-img {
@@ -48,6 +48,8 @@ div.header-about-img {
   background-position: center center;
   opacity: .2;
   margin-bottom: 100px;
+  position: relative;
+  z-index: -1;
 }
 
 div.header-about {
@@ -315,4 +317,12 @@ div.form-input > input {
 div.form-input > input:hover {
   cursor: auto;
   background-color: #424242;
+}
+
+div.about-page > h2 > a {
+  color: cornflowerblue;
+}
+
+div.about-page > h2 > a:hover {
+  color: #F5FF64;
 }
