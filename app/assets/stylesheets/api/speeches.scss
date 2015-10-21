@@ -34,9 +34,8 @@ div.speech-index-item {
   -webkit-transition: all .3s;
   -moz-transition: all .3s;
   transition: all .3s;
-  // float: left;
-  // width: 300px;
-  // -webkit-column-break-inside: avoid;
+  text-align: center;
+  overflow: hidden;
 }
 
 div.speech-bottom-index-item {
@@ -54,6 +53,7 @@ div.speech-bottom-index-item {
   display: table-cell;
   vertical-align: middle;
   vertical-align: -webkit-baseline-middle;
+  overflow: hidden;
   // width: 300px;
   // -webkit-column-break-inside: avoid;
   // position: relative;

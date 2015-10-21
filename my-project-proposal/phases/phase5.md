@@ -1,6 +1,8 @@
 # Phase 5: Votes (1 days)
 
 *divide by window height for annotations show position*
+*think about setting top to 50% at all times, and having parent element not be display:relative*
+*add a song index container to center the right song index*
 
 ## Rails
 ### Models

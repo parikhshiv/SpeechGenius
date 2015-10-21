@@ -11,7 +11,14 @@ div.auth-form > form > input {
 
 div.auth-form > form > input.submit {
   width: inherit;
-  margin-top: 10px;
+  margin: 2% 25% 0%;
+  color: white;
+  text-shadow: 1px 1px 1px #000000;
+}
+
+div.auth-form > form > input.guest-submit {
+  width: inherit;
+  margin: 0% 25% 0%;
   color: white;
   text-shadow: 1px 1px 1px #000000;
 }

@@ -18,4 +18,13 @@
 
     <input type="submit" class="submit" value="<%= button_text %>">
   </form>
+
+  <form action=" <%= session_url %>" method="POST">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+    <input type="hidden" value="guest@example.com" name="user[email]">
+
+    <input type="hidden" value="guestpassword" name="user[password]">
+    <input type="submit" class="guest-submit" value="Guest Login!">
+  </form>
 </div>

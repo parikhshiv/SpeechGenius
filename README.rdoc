@@ -26,3 +26,58 @@ Things you may want to cover:
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
+
+
+Window Width, top positioning(px), pos, top positioning - pos
+
+*3178*
+2111, 2941.01, 3178,   -236.99
+2074, 2972.03, 3178, -205.97
+1780, 3179.2, 3178, 1.2
+1566, 3478.36, 3178, 300.36
+1414, 3662.51, 3178, 484.51
+1148, 4237.86, 3178, 1059.86
+933, 4968, 3178, 1790
+
+18120.9598 + -2411.7603Ln(X)
+
+*284*
+2113, -8.1491, 284, -292.1491
+1905, 23.774, 284, -260.226
+1768, 30.771, 284, -253.229
+1514, 51, 284, -233
+1201, 106, 284, -178
+1033, 112, 284, -172
+
+1011.0872 + -169.2833Ln(X)
+
+*1556*
+1968, 830.31, 1556, -725.69
+2113, 784, 1556, -772
+1555, 1000, 1556, -556
+1192, 1278, 1556, -278
+915, 1543, 1556, -13
+
+6193.7829 + -912.8971Ln(X)
+
+pos, A in log equation (A + BX)
+Linear: Y = AX + B:
+Y = 5.977X + -1555.5816
+correlation = 0.9882
+
+Exponential: Y = C(D^X):
+Y = 936.4815(1.001^X)
+correlation = 0.9767
+
+Power: Y = E(X^F):
+Y = 1.2967(X^1.1715)
+correlation = 0.9964
+
+Logarithmic: Y = G + H(Ln(X)):
+Y = -36147.7645 + 6350.9492Ln(X)
+correlation = 0.8981
+
+pos, B in log equation (A + BX)
+Linear: Y = AX + B:
+Y = -0.7816X + 142.6778
+correlation = -0.9925

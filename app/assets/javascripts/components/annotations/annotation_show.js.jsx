@@ -1,3 +1,4 @@
+var WINDOW_CONSTANT = 2132;
 var AnnotationShow = React.createClass({
   mixins: [ReactRouter.History],
   getInitialState: function () {
@@ -19,15 +20,19 @@ var AnnotationShow = React.createClass({
       {commentable_id: this.props.params.annotationID,
        commentable_type: "Annotation"}));
   },
+  reRender: function () {
+    this.setState({});
+  },
   componentWillMount: function () {
     AnnotationStore.addChangeListener(this._updateAnnotation);
+    window.addEventListener('resize', this.reRender);
     ApiUtil.fetchAnnotations(this.props.params.speechID);
   },
   componentWillReceiveProps: function (nextProps) {
     this._updateAnnotation(nextProps.params.annotationID);
-    // ApiUtil.fetchAnnotations(this.props.params.speechID);
   },
   componentWillUnmount: function () {
+    window.removeEventListener('resize', this.reRender);
     AnnotationStore.removeChangeListener(this._updateAnnotation);
   },
   _updateAnnotation: function (id) {
@@ -121,8 +126,14 @@ var AnnotationShow = React.createClass({
     if (this.state.annotation.image_url) {
       image = <img className="annotation-img" src={this.state.annotation.image_url}/>;
     }
-    var style = {top: this.state.annotation.pos-250};
-    // use window.innerHeight and window.innerWidth to scale this
+    var X = this.state.annotation.pos
+    // var style = {top: X + 18120.9598 + (-2411.7603*Math.log(window.innerWidth))};
+    var style = {top: X-250}
+    // console.log("A:" + ((-0.7816)*X + 142.6778));
+    // console.log("B:" + (1.2967*(X^1.1715)));
+    // use window.innerHeight and window.innerWidth to scale this 374913.8171(X^-0.6353)
+    // 18120.9598 + -2411.7603Ln(X)
+    // this.state.annotation.pos + 18120.9598 + (-2411.7603*Math.log(window.innerWidth))
     return (
       <div className="annotation-show-container" onClick={this.preventDefault} style={style}>
         <h5>SpeechGenius Annotation</h5>
