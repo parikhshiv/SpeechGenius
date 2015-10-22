@@ -16,7 +16,7 @@ var SpeechEditForm = React.createClass({
   },
   componentWillMount: function () {
     SpeechStore.addChangeListener(this._updateSpeech);
-    ApiUtil.fetchSpeeches();
+    ApiUtil.fetchSingleSpeech(this.props.params.speechID);
   },
   componentWillUnmount: function () {
     SpeechStore.removeChangeListener(this._updateSpeech);

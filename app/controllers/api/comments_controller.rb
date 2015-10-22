@@ -5,7 +5,7 @@ class Api::CommentsController < ApplicationController
   end
 
   def show
-    @comment = Comment.find(params[:id])
+    @comment = Comment.includes({commentable: [{comments: [:user, :votes]}, :votes]}).find(params[:id])
     @commentable = @comment.commentable
     render :show
   end
@@ -13,6 +13,7 @@ class Api::CommentsController < ApplicationController
   def create
     @comment = current_user.comments.new(comment_params)
     if @comment.save
+      @comment = Comment.includes({commentable: [{comments: [:user, :votes]}, :votes]}).find(@comment.id)
       @commentable = @comment.commentable
       render :show
     else

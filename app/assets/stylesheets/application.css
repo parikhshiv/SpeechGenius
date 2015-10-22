@@ -23,7 +23,7 @@ body {
   background-color: black;
   margin: 0px;
   height: 100%;
-  min-width: 600px;
+  min-width: 750px;
 }
 
 div.about-page {
@@ -281,7 +281,7 @@ div.image-upload {
 
 div.image-upload > input {
   font-size: 16px;
-  width: 22%;
+  width: 45%;
   float: right;
   background-color: inherit;
   border: none;

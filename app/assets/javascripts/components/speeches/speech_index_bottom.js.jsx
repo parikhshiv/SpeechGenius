@@ -15,7 +15,7 @@ var SpeechIndexBottom = React.createClass({
     return (
       <div className="index-bottom">
         <div className="song-index-bottom">
-          {this.state.speeches.slice(4).sort(vote_sort).map(function (speech) {
+          {this.state.speeches.slice(3).sort(vote_sort).map(function (speech) {
               return <SpeechBottomIndexItem key={speech.id} {...speech}/>;
             })
           }

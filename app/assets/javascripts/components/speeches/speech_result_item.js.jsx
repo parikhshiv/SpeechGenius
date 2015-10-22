@@ -2,7 +2,7 @@ var SearchResultItem = React.createClass({
   mixins: [ReactRouter.History],
   redirect: function () {
     this.props.resetSearch();
-    ApiUtil.fetchSpeeches();
+    ApiUtil.fetchSingleSpeech(this.props.id);
     this.history.pushState(null, "/speeches/" + this.props.id);
   },
   render: function () {

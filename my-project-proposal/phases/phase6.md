@@ -1,10 +1,10 @@
 Bonus Work (Remaining Time)
 
-*could render vote updates on page*
+1. Rework votes controller to make single queries for comments
+2. add a fetchSingleSpeech to api_util, that makes a get request to show
+
 *creating and deleting annotations is slow on heroku, and when you reload index after that it goes slow*
-*after you delete a comment from one annotation you can't view other annotations*
-*after you create a speech, or create a comment on a speech, its slow to view other comments*
-*Include an Image is too small on small screens*
+*after you create a speech, or create a comment on a speech, its slow to view other speeches*
 
 6. Get timestamps on comments down
 7. Bonuses: Cool home page that posts links to different speakers, who all have their own speaker show page, videos at the top of song pages,

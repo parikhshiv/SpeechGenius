@@ -29,7 +29,8 @@ var AnnotationShow = React.createClass({
     ApiUtil.fetchAnnotations(this.props.params.speechID);
   },
   componentWillReceiveProps: function (nextProps) {
-    this._updateAnnotation(nextProps.params.annotationID);
+    // this._updateAnnotation(nextProps.params.annotationID);
+    ApiUtil.fetchSingleAnnotation(nextProps.params.annotationID);
   },
   componentWillUnmount: function () {
     window.removeEventListener('resize', this.reRender);

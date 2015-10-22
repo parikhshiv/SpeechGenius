@@ -19,7 +19,7 @@ var SpeechShow = React.createClass({
   componentWillMount: function () {
     SpeechStore.addChangeListener(this._updateSpeech);
     window.addEventListener('mouseup', this.clearAnnotationLink);
-    ApiUtil.fetchSpeeches();
+    ApiUtil.fetchSingleSpeech(this.props.params.speechID);
   },
   componentWillUnmount: function () {
     SpeechStore.removeChangeListener(this._updateSpeech);
@@ -164,44 +164,44 @@ var SpeechShow = React.createClass({
   upvote: function () {
     data = {votable_id: this.props.params.speechID, votable_type: "Speech", value: 1};
     ApiUtil.createSpeechVote(data, function () {
-      ApiUtil.fetchSpeeches();
-    });
+      ApiUtil.fetchSingleSpeech(this.props.params.speechID);
+    }.bind(this));
   },
   downvote: function () {
     data = {votable_id: this.props.params.speechID, votable_type: "Speech", value: -1};
     ApiUtil.createSpeechVote(data, function () {
-      ApiUtil.fetchSpeeches();
-    });
+      ApiUtil.fetchSingleSpeech(this.props.params.speechID);
+    }.bind(this));
   },
   updateSpeechVote: function (data) {
     ApiUtil.updateSpeechVote(data, function () {
-      ApiUtil.fetchSpeeches();
-    });
+      ApiUtil.fetchSingleSpeech(this.props.params.speechID);
+    }.bind(this));
   },
   cancelSpeechVote: function (data) {
     ApiUtil.cancelSpeechVote(data, function () {
-      ApiUtil.fetchSpeeches();
-    });
+      ApiUtil.fetchSingleSpeech(this.props.params.speechID);
+    }.bind(this));
   },
   upvoteComment: function (data) {
     ApiUtil.createSpeechCommentVote(data, function () {
-      ApiUtil.fetchSpeeches();
-    });
+      ApiUtil.fetchSingleSpeech(this.props.params.speechID);
+    }.bind(this));
   },
   downvoteComment: function (data) {
     ApiUtil.createSpeechCommentVote(data, function () {
-      ApiUtil.fetchSpeeches();
-    });
+      ApiUtil.fetchSingleSpeech(this.props.params.speechID);
+    }.bind(this));
   },
   updateCommentVote: function (data) {
     ApiUtil.updateSpeechCommentVote(data, function () {
-      ApiUtil.fetchSpeeches();
-    });
+      ApiUtil.fetchSingleSpeech(this.props.params.speechID);
+    }.bind(this));
   },
   cancelCommentVote: function (data) {
     ApiUtil.cancelSpeechCommentVote(data, function () {
-      ApiUtil.fetchSpeeches();
-    });
+      ApiUtil.fetchSingleSpeech(this.props.params.speechID);
+    }.bind(this));
   },
   render: function () {
     var hidden = (this.props.params.annotationID) ? "" : " invisible";

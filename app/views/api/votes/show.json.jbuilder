@@ -3,7 +3,7 @@ if @votable.class == Speech
       :created_at, :updated_at, :image_url
   json.content Speech.lyrics_formatting(@votable.content)
   json.comments do
-    json.partial! 'api/comments/comment', collection: @votable.comments, as: :comment
+    json.partial! 'api/comments/comment', collection: @comments, as: :comment
   end
   json.votes do
     json.partial! 'api/votes/vote', collection: @votable.votes, as: :vote
@@ -12,7 +12,7 @@ elsif @votable.class == Annotation
   json.extract! @votable, :id, :content, :user_id, :speech_id, :image_url,
       :created_at, :updated_at, :pos
   json.comments do
-    json.partial! 'api/comments/comment', collection: @votable.comments, as: :comment
+    json.partial! 'api/comments/comment', collection: @comments, as: :comment
   end
   json.votes do
     json.partial! 'api/votes/vote', collection: @votable.votes, as: :vote

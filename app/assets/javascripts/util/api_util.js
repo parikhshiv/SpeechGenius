@@ -8,6 +8,11 @@ ApiUtil = {
       }
     });
   },
+  fetchSingleSpeech: function (id) {
+    $.get("api/speeches/" + id, function (speech) {
+      ApiActions.receiveSpeeches([speech]);
+    });
+  },
   fetchSpeeches: function () {
     $.get("api/speeches", function (speeches) {
       ApiActions.receiveSpeeches(speeches);
@@ -38,6 +43,11 @@ ApiUtil = {
   fetchAnnotations: function (data) {
     $.get("api/annotations", {speech_id: data}, function (annotations) {
       ApiActions.receiveAnnotations(annotations);
+    });
+  },
+  fetchSingleAnnotation: function (id) {
+    $.get("api/annotations/" + id, function (annotation) {
+      ApiActions.receiveAnnotations([annotation]);
     });
   },
   deleteAnnotationComment: function (data) {
