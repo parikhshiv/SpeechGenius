@@ -30,7 +30,11 @@ gem 'newrelic_rpm'
 gem 'react-rails', '~> 1.3.0'
 gem 'flux-rails-assets'
 gem 'seed_dump'
+gem 'redis-rails'
 
+group :production do
+  gem "rails_12factor"
+end
 # Use Unicorn as the app server
 # gem 'unicorn'
 

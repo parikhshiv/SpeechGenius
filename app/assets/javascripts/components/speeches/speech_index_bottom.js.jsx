@@ -4,7 +4,6 @@ var SpeechIndexBottom = React.createClass({
   },
   componentWillMount: function () {
     SpeechStore.addChangeListener(this._update);
-    ApiUtil.fetchSpeeches();
   },
   _update: function () {
     this.setState({speeches: SpeechStore.all()});

@@ -1,12 +1,12 @@
-class Api::AnnotationsController < ApplicationController
+  class Api::AnnotationsController < ApplicationController
   def index
     @speech = Speech.find(params[:speech_id])
-    @annotations = @speech.annotations
+    @annotations = @speech.annotations.includes({comments: [:user, :votes]}, :votes)
     render :index
   end
 
   def show
-    @annotation = Annotation.find(params[:id])
+    @annotation = Annotation.includes({comments: [:user, :votes]}, :votes).find(params[:id])
     render :show
   end
 

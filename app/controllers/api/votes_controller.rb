@@ -11,14 +11,14 @@ class Api::VotesController < ApplicationController
   end
 
   def destroy
-    @vote = Vote.find(params[:id])
+    @vote = Vote.includes({votable: [{comments: [:user, :votes]}, :votes]}).find(params[:id])
     @votable = @vote.votable
     @vote.delete
     render :show
   end
 
   def update
-    @vote = Vote.find(params[:vote][:id])
+    @vote = Vote.includes({votable: [{comments: [:user, :votes]}, :votes]}).find(params[:vote][:id])
     @votable = @vote.votable
     if @vote.update(vote_params)
       render :show

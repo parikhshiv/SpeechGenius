@@ -1,6 +1,7 @@
 class Api::SpeechesController < ApplicationController
   def index
-    @speeches = Speech.all
+    # @speeches = Speech.includes({comments: [:user, {votes: :user}]}, {votes: :user})
+    @speeches = Speech.includes({comments: [:user, :votes]}, :votes)
     render :index
   end
 
@@ -20,7 +21,7 @@ class Api::SpeechesController < ApplicationController
   end
 
   def update
-    @speech = Speech.find(params[:speech][:id])
+    @speech = Speech.includes({comments: [:user, :votes]}, :votes).find(params[:speech][:id])
     if @speech.update(speech_params)
       render :show
     else
