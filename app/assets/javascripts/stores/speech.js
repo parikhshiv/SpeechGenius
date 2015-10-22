@@ -29,18 +29,20 @@
 
   var sort_comments = function (commentable) {
     commentable.forEach(function (speech) {
-      var comments = speech.comments.sort(function (a, b) {
-        var first = a.created_at;
-        var second = b.created_at;
-        if (first < second) {
-          return 1;
-        } else if (first === second) {
-          return 0;
-        } else {
-          return -1;
-        }
-      });
-      return comments.sort(vote_sort);
+      if (speech.comments) {
+        var comments = speech.comments.sort(function (a, b) {
+          var first = a.created_at;
+          var second = b.created_at;
+          if (first < second) {
+            return 1;
+          } else if (first === second) {
+            return 0;
+          } else {
+            return -1;
+          }
+        });
+        return comments.sort(vote_sort);
+      }
     });
   };
 

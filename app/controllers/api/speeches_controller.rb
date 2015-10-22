@@ -1,7 +1,8 @@
 class Api::SpeechesController < ApplicationController
   def index
-    # @speeches = Speech.includes({comments: [:user, {votes: :user}]}, {votes: :user})
-    @speeches = Speech.includes({comments: [:user, :votes]}, :votes)
+    # @speeches = Speech.includes({comments: [:user, :votes]}, :votes)
+    @speeches = Speech.select(:id, :title, :speaker,
+      :created_at, :image_url).includes(:votes)
     render :index
   end
 
@@ -32,7 +33,8 @@ class Api::SpeechesController < ApplicationController
 
   def search
    if params[:query].present?
-     @speeches = Speech.where("(LOWER(title) LIKE ?) OR (LOWER(speaker) LIKE ?)",
+     @speeches = Speech.select(:id, :title, :speaker,
+         :created_at, :updated_at).where("(LOWER(title) LIKE ?) OR (LOWER(speaker) LIKE ?)",
       "%#{params[:query].downcase}%", "%#{params[:query].downcase}%")
    else
      @speeches = Speech.none

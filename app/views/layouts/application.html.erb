@@ -27,7 +27,8 @@
 
 <%= yield %>
 
-<% if flash[:errors] %>
+
+<% if flash[:errors] && !current_user %>
   <div class="errors">
     <% flash[:errors].each do |msg| %>
       <p><b><%= msg %></b></p>
