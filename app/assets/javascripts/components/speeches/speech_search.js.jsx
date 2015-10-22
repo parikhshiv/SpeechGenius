@@ -23,7 +23,8 @@ var SpeechSearch = React.createClass({
     return (
       <div className="speech-search">
         <input placeholder={"Search Speeches..."} type="text"
-        value={this.state.search} onChange={this.handleInput}/>
+        value={this.state.search} onChange={this.handleInput}
+        onKeyDown={this.handleKeyDown}/>
         <SearchResults speeches={this.state.filteredSpeeches} resetSearch={this.resetSearch}/>
       </div>
     )

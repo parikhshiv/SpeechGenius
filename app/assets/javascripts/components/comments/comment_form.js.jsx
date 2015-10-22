@@ -25,15 +25,20 @@ CommentForm = React.createClass({
       this.setState({image_url: image_action.url});
     }.bind(this));
   },
+  handleKeyDown: function (e) {
+    if (e.keyCode === 13) {
+      this.handleSubmit(e);
+    }
+  },
   render: function () {
     var image_upload = (this.state.image_url) ? <input type="image-upload" value="Image Attached ✓" className="comment-image-upload disabled" readOnly/> :
-    <input type="image-upload" value="Upload An Image!" onClick={this.image} className="comment-image-upload" readOnly/>;
+    <input type="image-upload" value="Include An Image!" onClick={this.image} className="comment-image-upload" readOnly/>;
     return (
       <div className="comment-form">
         <form onSubmit={this.handleSubmit}>
           <textarea rows='5' cols='20'
           placeholder="Suggest an improvement, or add a comment..."
-          valueLink={this.linkState('body')}/>
+          valueLink={this.linkState('body')} onKeyDown={this.handleKeyDown}/>
           <br/>
           <div className="comment-button-container">
             <div className="comment-submit-button">

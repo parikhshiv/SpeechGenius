@@ -39,7 +39,7 @@ var SpeechForm = React.createClass({
       errors = "All fields must be completed.";
     }
     var image_upload = (this.state.image_url) ? <input type="image-upload" value="Image Attached ✓" className="image-upload disabled" readOnly/> :
-    <input type="image-upload" value="Upload An Image!" onClick={this.image} className="image-upload" readOnly/>;
+    <input type="image-upload" value="Include An Image!" onClick={this.image} className="image-upload" readOnly/>;
     return (
       <div className="speech-form">
         <h3>Add A New Speech</h3>

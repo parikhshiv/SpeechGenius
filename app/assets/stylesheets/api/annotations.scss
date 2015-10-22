@@ -32,7 +32,7 @@ div.annotation {
 
 div.annotation-show-container {
   padding: 1%;
-  max-height: 1000px;
+  // max-height: 1000px;
   width: 75%;
   position: absolute;
   padding: 3%;
@@ -64,7 +64,7 @@ button.annotation-link {
   height: inherit;
   background-color: #333333;
   border: 1px solid #F5FF64;
-  width: 350px;
+  width: 210%;
   color: #F5FF64;
   font-size: 18px;
   font-style: normal;
@@ -78,7 +78,7 @@ div.annotation-link {
   border-left: 2px solid yellow;
   position: fixed;
   bottom: 50%;
-  right: 10%;
+  right: 20%;
 }
 
 button.annotation-link:hover {

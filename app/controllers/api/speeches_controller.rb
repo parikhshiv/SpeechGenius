@@ -32,7 +32,7 @@ class Api::SpeechesController < ApplicationController
   def search
    if params[:query].present?
      @speeches = Speech.where("(LOWER(title) LIKE ?) OR (LOWER(speaker) LIKE ?)",
-      "#{params[:query].downcase}%", "#{params[:query].downcase}%")
+      "%#{params[:query].downcase}%", "%#{params[:query].downcase}%")
    else
      @speeches = Speech.none
    end

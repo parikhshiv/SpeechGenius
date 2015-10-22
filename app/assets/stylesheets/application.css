@@ -58,6 +58,7 @@ div.header-about {
   width: 68%;
   height: 585px;
   margin-top: 1%;
+  overflow: hidden;
 }
 
 div.header-about > h1 {
@@ -177,6 +178,10 @@ div.errors {
   margin: auto;
   text-align: center;
   font-style: normal;
+}
+
+div.edit-and-delete-buttons {
+  min-height: 30px;
 }
 
 div.text {

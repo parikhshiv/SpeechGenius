@@ -1,5 +1,7 @@
 Bonus Work (Remaining Time)
 
+*could render vote updates on page*
+
 6. Get timestamps on comments down
 7. Bonuses: Cool home page that posts links to different speakers, who all have their own speaker show page, videos at the top of song pages,
 different genres such as speeches, literature, and word etymologies (the list could go on...).
@@ -9,5 +11,4 @@ different genres such as speeches, literature, and word etymologies (the list co
 
 *Right now, if you highlight an entire sentence, you can replace all or part of that sentence by highlighting over it*
 *You can also break a highlight/page by highlighting very close to existing highlights*
-*make sure all filepicker is https only (which it may be already)*
-*Only works on chrome!*
+*Only works on chrome and safari, not mozilla!*

@@ -118,7 +118,7 @@ var AnnotationShow = React.createClass({
     }.bind(this));
   },
   render: function () {
-    var delete_button; var image; var edit_button;
+    var delete_button; var image; var edit_button; var hidden = "";
     if (window.CURRENT_USER_ID === this.state.annotation.user_id) {
       delete_button = <input className="cancel" onClick={this.delete} value="Delete Annotation" readOnly/>;
       edit_button = <input className="edit" onClick={this.editAnnotation} value="Edit Annotation" readOnly/>;
@@ -148,9 +148,9 @@ var AnnotationShow = React.createClass({
             updateVote={this.updateAnnotationVote} cancelVote={this.cancelAnnotationVote}
             votes={this.state.annotation.votes}/>
         </div>
-        <div className="edit-and-delete-buttons">
-          {edit_button}
-          {delete_button}
+        <div className={"edit-and-delete-buttons"}>
+            {edit_button}
+            {delete_button}
         </div>
         <CommentContainer comments={this.state.annotation.comments}
         handleSubmit={this.handleSubmit} deleteComment={this.deleteComment}

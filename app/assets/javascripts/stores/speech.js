@@ -6,23 +6,25 @@
 
   var resetSpeeches = function(speeches){
     _speeches = speeches.slice(0);
-    _speeches = _speeches.sort(function (a, b) {
-      var first = a.title[0].toLowerCase();
-      var second = b.title[0].toLowerCase();
-      if (first < second) {
-        return -1;
-      } else if (first === second) {
-        return 0;
-      } else {
-        return 1;
-      }
-    });
+    _speeches = _speeches.sort(created_at_sort);
     sort_comments(_speeches);
   };
 
   var resetFilteredSpeeches = function (filteredSpeeches) {
     _filteredSpeeches = filteredSpeeches.slice(0);
     // could put sort here, for created_at, or alphabetical
+  };
+
+  var created_at_sort = function (a, b) {
+    var first = a.created_at;
+    var second = b.created_at;
+    if (first < second) {
+      return -1;
+    } else if (first === second) {
+      return 0;
+    } else {
+      return 1;
+    }
   };
 
   var sort_comments = function (commentable) {
@@ -62,7 +64,7 @@
 
   var SpeechStore = root.SpeechStore = $.extend({}, EventEmitter.prototype, {
     all: function () {
-      return _speeches.slice().sort(vote_sort);
+      return _speeches.slice();
     },
     clearFilteredSpeeches: function () {
       _filteredSpeeches = [];

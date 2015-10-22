@@ -44,7 +44,7 @@ var AnnotationForm = React.createClass({
     }
     var hidden = (this.props.visible) ? "" : " hidden";
     var image_upload = (this.state.image_url) ? <input type="image-upload" value="Image Attached ✓" className="image-upload disabled" readOnly/> :
-    <input type="image-upload" value="Upload Image!" onClick={this.image} className="image-upload" readOnly/>;
+    <input type="image-upload" value="Include An Image!" onClick={this.image} className="image-upload" readOnly/>;
     return (
       <div className={"annotation" + hidden}>
         <form onSubmit={this.handleSubmit}>
