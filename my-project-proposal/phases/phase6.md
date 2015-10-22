@@ -1,6 +1,10 @@
 Bonus Work (Remaining Time)
 
 *could render vote updates on page*
+*creating and deleting annotations is slow on heroku, and when you reload index after that it goes slow*
+*after you delete a comment from one annotation you can't view other annotations*
+*after you create a speech, or create a comment on a speech, its slow to view other comments*
+*Include an Image is too small on small screens*
 
 6. Get timestamps on comments down
 7. Bonuses: Cool home page that posts links to different speakers, who all have their own speaker show page, videos at the top of song pages,
