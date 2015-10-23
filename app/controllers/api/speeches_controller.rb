@@ -22,7 +22,7 @@ class Api::SpeechesController < ApplicationController
   end
 
   def update
-    @speech = Speech.find(params[:speech][:id])
+    @speech = Speech.select(:id, :content, :user_id).find(params[:speech][:id])
     if @speech.update(speech_params)
       render json: @speech
     else

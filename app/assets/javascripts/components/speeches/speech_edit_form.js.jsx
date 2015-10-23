@@ -29,7 +29,7 @@ var SpeechEditForm = React.createClass({
   },
   handleSubmit: function () {
     if (this._validated()) {
-      ApiUtil.updateSpeech($.extend(this.state, {id: this.state.speech.id}), function () {
+      ApiUtil.updateSpeech($.extend({}, this.state, {id: this.state.speech.id}), function () {
         this.props.history.pushState(null, "/speeches/" + this.state.speech.id);
       }.bind(this));
     } else {
