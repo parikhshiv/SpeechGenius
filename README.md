@@ -1,6 +1,6 @@
 ### SpeechGenius
 
-[Live Link](speechgenius.xyz)
+[Live Link](https://speechgenius.xyz)
 
 ## Summary
 
@@ -25,7 +25,7 @@ SpeechGenius is a full-stack web app built on Ruby on Rails and React.js. Speech
 
 ## Interpreting Text Selection
 
-Highlighting text within recipe body triggers annotation creation. The exact position of the highlighted text within the speech body must be correctly identified using window.getSelection, as this position is used to change the speech's text to incorporate the correct link:
+Highlighting text within speech body triggers annotation creation. The exact position of the highlighted text within the speech body must be correctly identified using window.getSelection, as this position is used to change the speech's text to incorporate the correct link:
 
 ```
   var selection = window.getSelection();
@@ -45,7 +45,7 @@ Highlighting text within recipe body triggers annotation creation. The exact pos
 
 ## Eager Loading
 
-Content-rich pages like recipe show pages render data from speeches many nested associations. To accomplish this quickly, eager loading is utilized server-side:
+Content-rich pages like speech show pages render data from speeches many nested associations. To accomplish this quickly, eager loading is utilized server-side:
 
 ```
 def show
