@@ -75,10 +75,10 @@ SpeechGenius is a clone of Rap Genius for speech annotation built on Ruby on Rai
 
  - Create accounts
  - Create sessions (log in)
- - Create speeches
- - Annotate speeches
- - Comment on speeches
- - Reply to annotations
- - Vote on annotations and replies
+ - Create, read, edit and delete speeches
+ - Create, read, edit and delete annotations on speeches
+ - Create, read and delete comments on speeches
+ - Create, read and delete comments on annotations
+ - Vote on speeches, annotations and comments - comments and new speeches should be ordered by total votes
  - Search for speeches
  - Guest login

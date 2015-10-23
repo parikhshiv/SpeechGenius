@@ -3,12 +3,14 @@ var SpeechForm = React.createClass({
   getInitialState: function () {
     return {speaker: null, title: null, content: null, image_url: null};
   },
-  handleSubmit: function () {
+  handleSubmit: function (e) {
     // CHECK FOR MALICIOUS HTML HERE
+    e.preventDefault();
     if (/<[a-z][\s\S]*>/i.test(this.state.content)) {
       alert("NO HTML PLEASE!!!!!!");
       return;
     }
+
     if (this._validated()) {
       ApiUtil.createSpeech(this.state, function (speech_id) {
         this.props.history.pushState(null, "/speeches/" + speech_id );
@@ -69,7 +71,3 @@ var SpeechForm = React.createClass({
     )
   }
 });
-
-// placeholder="e.g. 'I Have A Dream'"
-//
-// placeholder="e.g. 'Martin Luther King Jr.'"

@@ -1,4 +1,3 @@
-var WINDOW_CONSTANT = 2132;
 var AnnotationShow = React.createClass({
   mixins: [ReactRouter.History],
   getInitialState: function () {
@@ -74,7 +73,7 @@ var AnnotationShow = React.createClass({
   },
   editAnnotation: function (e) {
     e.preventDefault();
-    this.props.history.pushState(null, "/annotations/edit/" + this.props.params.annotationID);
+    this.props.history.pushState(null, "speeches/" + this.props.params.speechID + "/annotations/edit/" + this.props.params.annotationID);
   },
   upvote: function () {
     data = {votable_id: this.props.params.annotationID, votable_type: "Annotation", value: 1};
@@ -128,13 +127,8 @@ var AnnotationShow = React.createClass({
       image = <img className="annotation-img" src={this.state.annotation.image_url}/>;
     }
     var X = this.state.annotation.pos
-    // var style = {top: X + 18120.9598 + (-2411.7603*Math.log(window.innerWidth))};
     var style = {top: X-250}
-    // console.log("A:" + ((-0.7816)*X + 142.6778));
-    // console.log("B:" + (1.2967*(X^1.1715)));
-    // use window.innerHeight and window.innerWidth to scale this 374913.8171(X^-0.6353)
-    // 18120.9598 + -2411.7603Ln(X)
-    // this.state.annotation.pos + 18120.9598 + (-2411.7603*Math.log(window.innerWidth))
+
     return (
       <div className="annotation-show-container" onClick={this.preventDefault} style={style}>
         <h5>SpeechGenius Annotation</h5>

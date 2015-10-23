@@ -32,7 +32,7 @@ var AnnotationEditForm = React.createClass({
     e.preventDefault();
     var annotationID = this.props.params.annotationID;
     if (this._validated()) {
-      ApiUtil.updateAnnotation($.extend(this.state, {id: annotationID}), function () {
+      ApiUtil.updateAnnotation($.extend({}, this.state, {id: annotationID}), function () {
         this.props.history.pushState(null, "/speeches/" + this.state.speech_id + "/annotations/" + annotationID);
       }.bind(this));
     }

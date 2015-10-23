@@ -53,5 +53,3 @@ CommentForm = React.createClass({
     )
   }
 });
-
-// data-fp-maxsize="4"

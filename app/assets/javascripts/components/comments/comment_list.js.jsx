@@ -8,7 +8,7 @@ var CommentList = React.createClass({
           cancelCommentVote={this.props.cancelCommentVote} {...comment}/>;
       }.bind(this))
     }
-    return(
+    return (
       <div className="comment-list">
         {list}
       </div>

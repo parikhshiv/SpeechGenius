@@ -1,6 +1,5 @@
 class Api::SpeechesController < ApplicationController
   def index
-    # @speeches = Speech.includes({comments: [:user, :votes]}, :votes)
     @speeches = Speech.select(:id, :title, :speaker,
       :created_at, :image_url).includes(:votes)
     render :index
@@ -23,7 +22,7 @@ class Api::SpeechesController < ApplicationController
   end
 
   def update
-    @speech = Speech.select(:id, :content, :user_id).find(params[:speech][:id])
+    @speech = Speech.find(params[:speech][:id])
     if @speech.update(speech_params)
       render json: @speech
     else

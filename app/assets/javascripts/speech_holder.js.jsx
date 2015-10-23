@@ -25,10 +25,8 @@ var StartReact = function () {
           <Route path="about" component={AboutPage}/>
           <Route path="speeches/new" component={SpeechForm}/>
           <Route path="speeches/edit/:speechID" component={SpeechEditForm}/>
-          <Route path="annotations/edit/:annotationID" component={AnnotationEditForm}/>
+          <Route path="speeches/:speechID/annotations/edit/:annotationID" component={AnnotationEditForm}/>
           <Route path="speeches/:speechID" component={SpeechShow}>
-            // <Route path="annotations/link" components={AnnotationLink}/>
-            // <Route path="annotations/new" components={AnnotationForm}/>
             <Route path="annotations/:annotationID" components={AnnotationShow}/>
           </Route>
         </Route>

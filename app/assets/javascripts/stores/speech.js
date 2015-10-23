@@ -12,7 +12,6 @@
 
   var resetFilteredSpeeches = function (filteredSpeeches) {
     _filteredSpeeches = filteredSpeeches.slice(0);
-    // could put sort here, for created_at, or alphabetical
   };
 
   var created_at_sort = function (a, b) {

@@ -27,7 +27,7 @@ var CommentListItem = React.createClass({
     if (this.props.image_url) {
       image = <img className="comment-img" src={this.props.image_url}/>;
     }
-    return(
+    return (
       <div className="comment">
         <div className="comment-header">
           <div className="comment-user-email pull-left">

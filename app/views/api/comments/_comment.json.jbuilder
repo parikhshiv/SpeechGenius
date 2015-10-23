@@ -5,5 +5,3 @@ json.user_email comment.user.email
 json.votes do
   json.partial! 'api/votes/vote', collection: comment.votes, as: :vote
 end
-
-# http://apidock.com/ruby/DateTime/strftime

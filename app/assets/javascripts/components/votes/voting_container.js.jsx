@@ -20,7 +20,6 @@ var VotingContainer = React.createClass({
   },
   downvote: function (e) {
     e.preventDefault();
-    // debugger;
     (this.state.vote) ? this.props.updateVote({id: this.state.vote.id, value: -1}) : this.props.downvote();
   },
   cancelVote: function (e) {

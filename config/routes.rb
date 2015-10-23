@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resource :session, :only => [:new, :create, :destroy]
-  resources :users, :only => [:new, :create, :show, :index]
+  resources :users, :only => [:new, :create]
   namespace :api, defaults: {format: :json} do
     resources :speeches, :only => [:new, :create, :show, :index, :destroy, :update] do
       get "search", on: :collection
