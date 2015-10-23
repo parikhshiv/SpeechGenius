@@ -27,7 +27,8 @@ var SpeechEditForm = React.createClass({
     this.setState({speech: speech, speaker: speech.speaker,
       title: speech.title, image_url: speech.image_url});
   },
-  handleSubmit: function () {
+  handleSubmit: function (e) {
+    e.preventDefault();
     if (this._validated()) {
       ApiUtil.updateSpeech($.extend({}, this.state, {id: this.state.speech.id}), function () {
         this.props.history.pushState(null, "/speeches/" + this.state.speech.id);
