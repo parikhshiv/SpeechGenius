@@ -8,19 +8,19 @@ SpeechGenius is a full-stack web app built on Ruby on Rails and React.js. Speech
 
 ## Landing Page
 
-![Landing Page](https://github.com/parikhshiv/SpeechGenius/shiv/master/docs/screenshots/landing.png)
+![Landing Page](https://github.com/parikhshiv/SpeechGenius/blob/master/docs/screenshots/landing.png)
 
 ## Speech View
 
-![Landing Page](https://github.com/parikhshiv/SpeechGenius/shiv/master/docs/screenshots/speech_view.png)
+![Landing Page](https://github.com/parikhshiv/SpeechGenius/blob/master/docs/screenshots/speech_view.png)
 
 ## Annotation Highlight
 
-![Landing Page](https://github.com/parikhshiv/SpeechGenius/shiv/master/docs/screenshots/annotation_highlight.png)
+![Landing Page](https://github.com/parikhshiv/SpeechGenius/blob/master/docs/screenshots/annotation_highlight.png)
 
 ## Annotation View
 
-![Landing Page](https://github.com/parikhshiv/SpeechGenius/shiv/master/docs/screenshots/annotation_view.png)
+![Landing Page](https://github.com/parikhshiv/SpeechGenius/blob/master/docs/screenshots/annotation_view.png)
 
 
 ## Interpreting Text Selection
