@@ -22,7 +22,7 @@ class Api::SpeechesController < ApplicationController
   end
 
   def update
-    @speech = Speech.select(:id, :user_id,
+    @speech = Speech.select(:id, :user_id, :content,
       :created_at, :updated_at, :image_url, :title, :speaker).includes({comments: [:user, :votes]}, :votes).find(params[:speech][:id])
     if @speech.update(speech_params)
       render :show

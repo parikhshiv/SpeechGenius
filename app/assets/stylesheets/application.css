@@ -155,7 +155,6 @@ header.auth > h1 {
 .logout:hover {
   cursor: pointer;
   color: black;
-  /*background-color: black;*/
   -webkit-transition: all .3s;
   -moz-transition: all .3s;
   transition: all .3s;
@@ -325,10 +324,16 @@ div.form-input > input:hover {
   background-color: #424242;
 }
 
-div.about-page > h2 > a {
+div.about-page > h2 > a, div.about-page > p > a {
   color: cornflowerblue;
+  -webkit-transition: all .1s;
+  -moz-transition: all .1s;
+  transition: all .1s;
 }
 
-div.about-page > h2 > a:hover {
+div.about-page > h2 > a:hover, div.about-page > p > a:hover  {
   color: #F5FF64;
+  -webkit-transition: all .1s;
+  -moz-transition: all .1s;
+  transition: all .1s;
 }
