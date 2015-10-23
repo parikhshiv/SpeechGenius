@@ -1,4 +1,3 @@
 json.array!(@speeches) do |speech|
-  json.extract! speech, :id, :title, :speaker,
-      :created_at, :updated_at
+  json.extract! speech, :id, :title, :speaker
 end

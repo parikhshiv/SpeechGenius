@@ -7,12 +7,12 @@ class Api::SpeechesController < ApplicationController
   end
 
   def show
-    @speech = Speech.includes({comments: [:user, :votes]}, :votes).find(params[:id])
+      @speech = Speech.includes({comments: [:user, :votes]}, :votes).find(params[:id])
     render :show
   end
 
   def create
-    @speech = current_user.speeches.new(speech_params)
+    @speech = current_user.speeches.select(:id).new(speech_params)
     if @speech.save
       render :show
     else
@@ -22,7 +22,8 @@ class Api::SpeechesController < ApplicationController
   end
 
   def update
-    @speech = Speech.includes({comments: [:user, :votes]}, :votes).find(params[:speech][:id])
+    @speech = Speech.select(:id, :user_id,
+      :created_at, :updated_at, :image_url, :title, :speaker).includes({comments: [:user, :votes]}, :votes).find(params[:speech][:id])
     if @speech.update(speech_params)
       render :show
     else
@@ -33,8 +34,7 @@ class Api::SpeechesController < ApplicationController
 
   def search
    if params[:query].present?
-     @speeches = Speech.select(:id, :title, :speaker,
-         :created_at, :updated_at).where("(LOWER(title) LIKE ?) OR (LOWER(speaker) LIKE ?)",
+     @speeches = Speech.select(:id, :title, :speaker).where("(LOWER(title) LIKE ?) OR (LOWER(speaker) LIKE ?)",
       "%#{params[:query].downcase}%", "%#{params[:query].downcase}%")
    else
      @speeches = Speech.none
@@ -42,10 +42,11 @@ class Api::SpeechesController < ApplicationController
 
    render :search
   end
+
   def destroy
-   @speech = Speech.find(params[:id])
+   @speech = Speech.select(:id).find(params[:id])
    @speech.delete
-   render :show
+   render json: @speech
   end
 
   private

@@ -1,7 +1,7 @@
   class Api::AnnotationsController < ApplicationController
   def index
-    @speech = Speech.find(params[:speech_id])
-    @annotations = @speech.annotations.includes({comments: [:user, :votes]}, :votes)
+    @speech = Speech.select(:id).includes({annotations: [{comments: [:user, :votes]}, :votes]}).find(params[:speech_id])
+    @annotations = @speech.annotations
     render :index
   end
 
@@ -21,7 +21,7 @@
   end
 
   def destroy
-    @annotation = Annotation.find(params[:id])
+    @annotation = Annotation.select(:id).find(params[:id])
     @annotation.delete
     render json: @annotation
   end
@@ -35,7 +35,6 @@
       render json: @annotation, status: :unprocessable_entity
     end
   end
-
 
   private
 

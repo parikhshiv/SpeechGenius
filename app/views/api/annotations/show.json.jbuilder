@@ -1,4 +1,4 @@
-json.extract! @annotation, :id, :content, :user_id, :speech_id, :image_url, :speech, :pos
+json.extract! @annotation, :id, :content, :user_id, :speech_id, :image_url, :pos
 # json.created_at @annotation.created_at.strftime('%a %d %b %Y')
 # json.updated_at @annotation.updated_at.strftime('%a %d %b %Y')
 # json.user_email @annotation.user.email
