@@ -8,7 +8,7 @@ SpeechGenius is a full-stack web app built on Ruby on Rails and React.js. Speech
 
 Landing Page
 
-(docs/screenshots/landing.png)
+[link](docs/screenshots/landing.png)
 
 Annotation View
 
