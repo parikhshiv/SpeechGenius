@@ -103,7 +103,6 @@ ApiUtil = {
       data: {speech: data},
       success: function (speech) {
         callback();
-        ApiActions.receiveSpeeches([speech]);
       },
       error: function (speech, msg) {
 

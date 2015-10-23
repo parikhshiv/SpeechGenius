@@ -22,10 +22,9 @@ class Api::SpeechesController < ApplicationController
   end
 
   def update
-    @speech = Speech.select(:id, :user_id, :content,
-      :created_at, :updated_at, :image_url, :title, :speaker).includes({comments: [:user, :votes]}, :votes).find(params[:speech][:id])
+    @speech = Speech.find(params[:speech][:id])
     if @speech.update(speech_params)
-      render :show
+      render json: @speech
     else
       flash[:errors] = @speech.errors.full_messages
       render json: @speech, status: :unprocessable_entity
