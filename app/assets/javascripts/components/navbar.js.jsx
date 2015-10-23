@@ -11,7 +11,7 @@ var Navbar = React.createClass({
       <header>
         <SpeechSearch/>
         <div className="logout" onClick={this.logOut}>Log Out</div>
-        <h1 onClick={this.home} className="home-page">SPEECHGENIUS</h1>
+        <h1 onClick={this.home} className="home-page">speechgenius</h1>
       </header>
     );
   }

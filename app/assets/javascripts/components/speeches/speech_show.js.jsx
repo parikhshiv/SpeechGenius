@@ -36,7 +36,6 @@ var SpeechShow = React.createClass({
        commentable_type: "Speech"}));
   },
   newAnnotation: function(pageY) {
-    // debugger;
     var selection = window.getSelection();
     if (!document.getElementById('active') &&
     selection.toString().trim().length > 0 && !(this.state.redirected)) {
@@ -221,6 +220,7 @@ var SpeechShow = React.createClass({
         </div>
         <div className="speech-container" onClick={this.clearAnnotationShow}>
           <h1>{this.state.speech.title}</h1>
+          <h3 className="instructions">Highlight text to start annotating!</h3>
           <VotingContainer upvote={this.upvote} downvote={this.downvote}
             updateVote={this.updateSpeechVote} cancelVote={this.cancelSpeechVote}
             votes={this.state.speech.votes} speech={true}/>
