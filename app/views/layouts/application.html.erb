@@ -8,33 +8,37 @@
   <script type="text/javascript" src="//api.filepicker.io/v2/filepicker.js"></script>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<% if current_user %>
+  <body>
+<% else %>
+  <body class="logged-out">
+<% end %>
+    <% if current_user %>
+      <script>
+        window.CURRENT_USER_ID = <%= current_user.id %>
+      </script>
+    <% else %>
+      <header class="auth">
+          <h1 class="home-page">SPEECHGENIUS</h1>
+      </header>
+      <header class="header-2">
+        <%= link_to "Sign Up", new_user_url, {class: "new-speech"}%>
+        <%= link_to "Sign In", new_session_url,{class: "new-speech"} %>
+      </header>
+    <% end %>
 
-  <% if current_user %>
-    <script>
-      window.CURRENT_USER_ID = <%= current_user.id %>
-    </script>
-  <% else %>
-    <header class="auth">
-        <h1 class="home-page">SPEECHGENIUS</h1>
-    </header>
-    <header class="header-2">
-      <%= link_to "Sign Up", new_user_url, {class: "new-speech"}%>
-      <%= link_to "Sign In", new_session_url,{class: "new-speech"} %>
-    </header>
+
+  <%= yield %>
+
+
+  <% if flash[:errors] && !current_user %>
+    <div class="errors">
+      <% flash[:errors].each do |msg| %>
+        <p><b><%= msg %></b></p>
+      <% end %>
+    </div>
   <% end %>
 
+  </body>
 
-<%= yield %>
-
-
-<% if flash[:errors] && !current_user %>
-  <div class="errors">
-    <% flash[:errors].each do |msg| %>
-      <p><b><%= msg %></b></p>
-    <% end %>
-  </div>
-<% end %>
-
-</body>
 </html>
