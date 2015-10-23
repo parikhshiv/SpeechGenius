@@ -59,3 +59,5 @@ var VotingContainer = React.createClass({
     )
   }
 });
+
+// 👍👎

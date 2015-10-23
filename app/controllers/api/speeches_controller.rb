@@ -7,7 +7,8 @@ class Api::SpeechesController < ApplicationController
   end
 
   def show
-      @speech = Speech.includes({comments: [:user, :votes]}, :votes).find(params[:id])
+      @speech = Speech.includes({comments: [:user, :votes]},
+       :votes).find(params[:id])
     render :show
   end
 
