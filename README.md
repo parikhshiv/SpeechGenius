@@ -1,20 +1,29 @@
-###SpeechGenius
+### SpeechGenius
 
-Live Link
+[Live Link](speechgenius.xyz)
 
-Summary
+## Summary
 
 SpeechGenius is a full-stack web app built on Ruby on Rails and React.js. SpeechGenius allows users to add, share, and annotate speeches. Annotations are created by simply highlighting speech text and submitting annotation content. Users can also vote on content and comment on speeches and annotations.
 
-Landing Page
+## Landing Page
 
-[link](docs/screenshots/landing.png)
+![Landing Page](https://github.com/parikhshiv/SpeechGenius.git/docs/screenshots/landing.png)
 
-Annotation View
+## Speech View
 
-(docs/screenshots/annotation_view.png)
+![Landing Page](https://github.com/parikhshiv/SpeechGenius.git/docs/screenshots/speech_view.png)
 
-Interpreting Text Selection
+## Annotation Highlight
+
+![Landing Page](https://github.com/parikhshiv/SpeechGenius.git/docs/screenshots/annotation_highlight.png)
+
+## Annotation View
+
+![Landing Page](https://github.com/parikhshiv/SpeechGenius.git/docs/screenshots/annotation_view.png)
+
+
+## Interpreting Text Selection
 
 Highlighting text within recipe body triggers annotation creation. The exact position of the highlighted text within the speech body must be correctly identified using window.getSelection, as this position is used to change the speech's text to incorporate the correct link:
 
@@ -32,7 +41,7 @@ array.splice(index + add_on, length,
    selection.toString() + "</a>" );
 speech.innerHTML = array.join('');
 
-Eager Loading
+## Eager Loading
 
 Content-rich pages like recipe show pages render data from speeches many nested associations. To accomplish this quickly, eager loading is utilized server-side:
 
@@ -54,16 +63,16 @@ json.votes do
   json.partial! 'api/votes/vote', collection: @speech.votes, as: :vote
 end
 
-Minimum Viable Product
+## Minimum Viable Product
 
 SpeechGenius is a clone of Rap Genius for speech annotation built on Ruby on Rails and React.js. Users can:
 
- Create accounts
- Create sessions (log in)
- Create speeches
- Annotate speeches
- Comment on speeches
- Reply to annotations
- Vote on annotations and replies
- Search for speeches
- Guest login
+ - Create accounts
+ - Create sessions (log in)
+ - Create speeches
+ - Annotate speeches
+ - Comment on speeches
+ - Reply to annotations
+ - Vote on annotations and replies
+ - Search for speeches
+ - Guest login
