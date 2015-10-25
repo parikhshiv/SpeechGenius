@@ -27,6 +27,7 @@ var CommentListItem = React.createClass({
     if (this.props.image_url) {
       image = <img className="comment-img" src={this.props.image_url}/>;
     }
+    var speechComment = (this.props.commentable_type === "Speech")
     return (
       <div className="comment">
         <div className="comment-header">
@@ -39,7 +40,7 @@ var CommentListItem = React.createClass({
         </div>
         <VotingContainer upvote={this.upvote} downvote={this.downvote}
           updateVote={this.updateCommentVote} cancelVote={this.cancelCommentVote}
-          votes={this.props.votes}/>
+          votes={this.props.votes} comment={speechComment}/>
         <div className="comment-body">
           {this.props.body}
         </div>
