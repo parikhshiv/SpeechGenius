@@ -54,18 +54,12 @@ div.speech-bottom-index-item {
   vertical-align: middle;
   vertical-align: -webkit-baseline-middle;
   overflow: hidden;
-  // width: 300px;
-  // -webkit-column-break-inside: avoid;
-  // position: relative;
 }
 
 div.speech-bottom-index-item > span, div.speech-bottom-index-item > strong{
   margin-top: 50%;
   vertical-align: middle;
   vertical-align: -webkit-baseline-middle;
-  // position: absolute;
-  // top: 50%;
-  // transform: translate(0, -50%);
 }
 
 img.bottom-speech-img {
@@ -128,6 +122,7 @@ ul.search-results {
   position: absolute;
   padding: 0px;
   margin: 0px;
+  z-index: 1;
 }
 
 div.search-result-item {
