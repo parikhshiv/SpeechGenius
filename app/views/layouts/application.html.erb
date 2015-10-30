@@ -20,8 +20,8 @@
           <h1 class="home-page">speechgenius</h1>
       </header>
       <header class="header-2">
-        <%= link_to "Sign Up", new_user_url, {class: "new-speech"}%>
-        <%= link_to "Sign In", new_session_url,{class: "new-speech"} %>
+        <%= link_to "Sign Up Here", new_user_url, {class: "new-speech"}%>
+        <%= link_to "Log In Here", new_session_url,{class: "new-speech"} %>
       </header>
     <% end %>
 
@@ -35,6 +35,10 @@
         <p><b><%= msg %></b></p>
       <% end %>
     </div>
+  <% end %>
+
+  <% unless current_user %>
+    <h3 class="welcome">Check out all your favorite speeches here!</h3>
   <% end %>
 
   </body>
