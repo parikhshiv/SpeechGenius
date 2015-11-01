@@ -47,8 +47,7 @@ var SpeechShow = React.createClass({
   newAnnotationTimeout: function (e) {
     setTimeout(this.newAnnotation.bind(null, e.pageY), 0);
   },
-  componentWillReceiveProps: function (nextProps) {
-    // debugger;
+  componentWillReceiveProps: function (nextProps)
     if (nextProps.params.annotationID && this.state.new) {
       this.cancel();
     } else if (nextProps.params.annotationID) {
@@ -59,7 +58,6 @@ var SpeechShow = React.createClass({
     this.setState({ speech: speech, link: false, text: speech.content});
   },
   clearAnnotationLink: function (redirect) {
-    // debugger;
     var selection = window.getSelection();
     if (redirect === 'redirect') {
       this.setState({ link: false, redirected: true });
@@ -105,6 +103,11 @@ var SpeechShow = React.createClass({
     }
     if (substring[substring.length-1] === "<") {
       alert("Click and drag to start annotations.");
+      this.setState({ link: false });
+      return;
+    }
+    if (typeof window.InstallTrigger !== 'undefined') {
+      alert("Annotations not yet supported on Mozilla Firefox.");
       this.setState({ link: false });
       return;
     }
