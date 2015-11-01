@@ -47,7 +47,7 @@ var SpeechShow = React.createClass({
   newAnnotationTimeout: function (e) {
     setTimeout(this.newAnnotation.bind(null, e.pageY), 0);
   },
-  componentWillReceiveProps: function (nextProps)
+  componentWillReceiveProps: function (nextProps) {
     if (nextProps.params.annotationID && this.state.new) {
       this.cancel();
     } else if (nextProps.params.annotationID) {
