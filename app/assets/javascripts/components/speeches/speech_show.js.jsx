@@ -107,7 +107,7 @@ var SpeechShow = React.createClass({
       return;
     }
     if (typeof window.InstallTrigger !== 'undefined') {
-      alert("Annotations not yet supported on Mozilla Firefox.");
+      alert("Annotations not yet supported on Mozilla Firefox. Please use Chrome or Safari.");
       this.setState({ link: false });
       return;
     }
