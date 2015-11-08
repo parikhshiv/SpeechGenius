@@ -97,7 +97,7 @@ var SpeechShow = React.createClass({
     var add_on = text.indexOf(selection.anchorNode.data);
     var substring = text.substring(index + add_on, index + length + add_on);
     if (text.indexOf(selection) === -1) {
-      alert("CAN'T ANNOTATE ON TOP OF EXISTING ANNOTATIONS");
+      alert("Can't annotate on top of existing annotations.");
       this.setState({ link: false });
       return;
     }

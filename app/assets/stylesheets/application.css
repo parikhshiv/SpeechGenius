@@ -194,6 +194,11 @@ div.text {
   margin-bottom: 3%;
 }
 
+#text::selection {
+  background: #FF08FF;
+  color: black;
+}
+
 .hidden {
   display: none;
 }
