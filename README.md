@@ -53,7 +53,7 @@ a link to the appropriate annotation is manually spliced into the speech text:
   var index = selection.anchorOffset < selection.extentOffset ?
     selection.anchorOffset : selection.extentOffset;
 
-  // array of speech text
+  // link is inserted into array of speech text, then array is joined back together
   array.splice(index + add_on, length,
     "<a id='active' class='annotation-link'>" +
      selection.toString() + "</a>" );
