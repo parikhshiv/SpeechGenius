@@ -20,7 +20,7 @@ var SpeechIndexRight = React.createClass({
         <div className="song-index">
           {this.state.speeches.slice(0,3).map(function (speech, idx) {
               return <SpeechIndexItem key={speech.id} {...speech}
-              url={"/assets/" + names[idx] +".jpg"}/>;
+              url={"public/assets/" + names[idx] +".jpg"}/>;
             })
           }
         </div>
