@@ -10,38 +10,9 @@ SpeechGenius is a full-stack web app built on Ruby on Rails and React.js. Speech
 
 ![Landing Page](https://github.com/parikhshiv/SpeechGenius/blob/master/docs/screenshots/landing.png)
 
-## Speech View
-
-![Landing Page](https://github.com/parikhshiv/SpeechGenius/blob/master/docs/screenshots/speech_view.png)
-
-## Annotation Highlight
-
-![Landing Page](https://github.com/parikhshiv/SpeechGenius/blob/master/docs/screenshots/annotation_highlight.png)
-
 ## Annotation View
 
 ![Landing Page](https://github.com/parikhshiv/SpeechGenius/blob/master/docs/screenshots/annotation_view.png)
-
-
-## Interpreting Text Selection
-
-Highlighting text within speech body triggers annotation creation. The exact position of the highlighted text within the speech body must be correctly identified using window.getSelection, as this position is used to change the speech's text to incorporate the correct link:
-
-```
-  var selection = window.getSelection();
-  var speech = document.getElementById('text');
-  var text = speech.innerHTML;
-  var array = text.split('');
-  var index = selection.anchorOffset < selection.extentOffset ?
-    selection.anchorOffset : selection.extentOffset;
-  var length = selection.toString().length;
-  var add_on = text.indexOf(selection.anchorNode.data);
-  var substring = text.substring(index + add_on, index + length + add_on);
-  array.splice(index + add_on, length,
-    "<a id='active' class='annotation-link'>" +
-     selection.toString() + "</a>" );
-  speech.innerHTML = array.join('');
-```
 
 ## Eager Loading
 
@@ -67,6 +38,27 @@ end
 json.votes do
   json.partial! 'api/votes/vote', collection: @speech.votes, as: :vote
 end
+```
+
+
+## Interpreting Text Selection
+
+Highlighting text within speech body triggers annotation creation. Using DOM manipulation,
+a link to the appropriate annotation is manually spliced into the speech text:
+
+```
+  var selection = window.getSelection();
+
+  // index depends on how text was highlighted (left to right vs right to left)
+  var index = selection.anchorOffset < selection.extentOffset ?
+    selection.anchorOffset : selection.extentOffset;
+
+  // array of speech text
+  array.splice(index + add_on, length,
+    "<a id='active' class='annotation-link'>" +
+     selection.toString() + "</a>" );
+
+  speech.innerHTML = array.join('');
 ```
 
 ## Minimum Viable Product
