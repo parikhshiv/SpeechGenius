@@ -13,14 +13,15 @@ var SpeechIndexRight = React.createClass({
     SpeechStore.removeChangeListener(this._update);
   },
   render: function () {
-    var names = ['obama', 'dylan', 'malcolm']
+    var names = [<%= image_tag "obama.jpg" %>, <%= image_tag "dylan.jpg" %>,
+     <%= image_tag "malcolm.jpg" %>]
     return (
       <div className="index">
         <HeaderAbout/>
         <div className="song-index">
           {this.state.speeches.slice(0,3).map(function (speech, idx) {
               return <SpeechIndexItem key={speech.id} {...speech}
-              url={"assets/" + names[idx] +".jpg"}/>;
+              url={names[idx]}/>;
             })
           }
         </div>
