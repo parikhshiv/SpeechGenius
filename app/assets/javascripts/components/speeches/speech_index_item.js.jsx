@@ -7,7 +7,7 @@ var SpeechIndexItem = React.createClass({
   render: function () {
     var image;
     if (this.props.image_url) {
-      image = <img className="speech-img" src={this.props.image_url}/>;
+      image = <img className="speech-img" src={this.props.url}/>;
     }
     return (
       <div onClick={this.onClick} className="speech-index-item">
