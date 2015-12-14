@@ -31,6 +31,7 @@ gem 'react-rails', '~> 1.3.0'
 gem 'flux-rails-assets'
 gem 'seed_dump'
 gem 'redis-rails'
+gem 'kaminari'
 
 group :production do
   gem "rails_12factor"

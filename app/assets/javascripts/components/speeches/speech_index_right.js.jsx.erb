@@ -4,7 +4,7 @@ var SpeechIndexRight = React.createClass({
   },
   componentWillMount: function () {
     SpeechStore.addChangeListener(this._update);
-    ApiUtil.fetchSpeeches();
+    ApiUtil.fetchSpeeches({page: 1});
   },
   _update: function () {
     this.setState({speeches: SpeechStore.all()});

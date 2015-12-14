@@ -21,6 +21,8 @@ class Speech < ActiveRecord::Base
   has_many :votes, as: :votable, dependent: :destroy
   has_many :annotations, dependent: :destroy
 
+  paginates_per 15
+
   def self.lyrics_formatting(lyrics)
     lyrics
   end

@@ -2,6 +2,52 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+span.new {
+  color: cornflowerblue;
+}
+
+span.new:hover {
+  cursor: pointer;
+  color: #F5FF64;
+  -webkit-transition: all .3s;
+  -moz-transition: all .3s;
+  transition: all .3s;
+}
+
+div.pagination {
+  width: 100%;
+  margin: auto;
+  text-align: center;
+  clear:both;
+  position: absolute;
+  bottom: 1%;
+}
+
+div.pages {
+  display: inline-block;
+  padding: 1% 2%;
+  border: 1px solid white;
+  margin: 1%;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+div.active {
+  background-color: gray;
+}
+
+div.pages:hover {
+  background-color: #565656;
+  cursor: pointer;
+  -webkit-transition: all .3s;
+  -moz-transition: all .3s;
+  transition: all .3s;
+}
+
 div.speech-form {
   width: 49%;
   margin: -3% auto 3% auto;
@@ -147,6 +193,7 @@ div.index-bottom {
   width: 68%;
   height: 482px;
   margin: 1% 0%;
+  position: relative;
 }
 
 div.song-index-bottom {

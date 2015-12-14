@@ -13,8 +13,8 @@ ApiUtil = {
       ApiActions.receiveSpeeches([speech]);
     });
   },
-  fetchSpeeches: function () {
-    $.get("api/speeches", function (speeches) {
+  fetchSpeeches: function (data) {
+    $.get("api/speeches", data, function (speeches) {
       ApiActions.receiveSpeeches(speeches);
     });
   },

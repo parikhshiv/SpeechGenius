@@ -1,6 +1,6 @@
 class Api::SpeechesController < ApplicationController
   def index
-    @speeches = Speech.select(:id, :title, :speaker,
+    @speeches = Speech.order(:speaker).page(params[:page]).select(:id, :title, :speaker,
       :created_at, :image_url).includes(:votes)
     render :index
   end
