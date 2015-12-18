@@ -15,10 +15,12 @@
  */
 
 
-@media handheld {
-  body {
-    box-sizing: border-box;
+@media screen and (max-width: 1020px) {
+  #container {
+    float: none;
+    width: auto;
   }
+  p { font-size: 2em; }
 }
 
 html {
