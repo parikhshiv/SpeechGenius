@@ -21,6 +21,7 @@
     width: auto;
   }
   p { font-size: 2em; }
+  body { min-width: none; }
 }
 
 html {
