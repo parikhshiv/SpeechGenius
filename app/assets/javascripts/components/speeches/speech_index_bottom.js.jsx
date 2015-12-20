@@ -31,7 +31,7 @@ var SpeechIndexBottom = React.createClass({
             Didn't find what you were looking for? Add a new speech
             <span className="new" onClick={this.newSpeech}> here!</span>
           </h1>
-          {this.state.speeches.slice(3).sort(vote_sort).map(function (speech) {
+          {this.state.speeches.sort(vote_sort).map(function (speech) {
               return <SpeechBottomIndexItem key={speech.id} {...speech}/>;
             })
           }
