@@ -84,6 +84,10 @@ div.speech-index-item {
   overflow: hidden;
 }
 
+div.speech-index-item:first-child {
+  margin-top: 0;
+}
+
 div.speech-bottom-index-item {
   border: 1px solid white;
   padding: 10px;
