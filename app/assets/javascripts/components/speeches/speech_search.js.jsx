@@ -25,6 +25,7 @@ var SpeechSearch = React.createClass({
         <input placeholder={"Search Speeches..."} type="text"
         value={this.state.search} onChange={this.handleInput}
         onKeyDown={this.handleKeyDown}/>
+        <span className="search-icon">🔍</span>
         <SearchResults speeches={this.state.filteredSpeeches} resetSearch={this.resetSearch}/>
       </div>
     )

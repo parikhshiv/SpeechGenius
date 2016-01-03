@@ -147,15 +147,14 @@ div.speech-search > input {
   color: black;
   background-color: white;
   height: 30px;
-  padding: 0.5%;
-  font-family: 'Fira Sans';
+  padding: 0.5% 0.5% 0.5% 0.8rem;
   font-weight: 200;
   font-size: 18px;
   width: 100%;
+  max-width: 225px;
 }
 
 div.speech-search > input::-webkit-input-placeholder {
-   text-align: center;
    color: black;
 }
 
@@ -201,4 +200,10 @@ div.song-index-bottom {
   margin: 0px;
   float: left;
   column-fill: auto;
+}
+
+span.search-icon {
+  position: absolute;
+  top: .55rem;
+  left: 14rem;
 }
