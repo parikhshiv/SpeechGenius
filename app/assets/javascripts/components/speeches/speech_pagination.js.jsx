@@ -19,7 +19,6 @@ var SpeechPagination = React.createClass({
     }
   },
   setPage: function (e, page) {
-    e.preventDefault();
     if (page <= this.state.active_page || SpeechStore.all().length !== 0) {
       ApiUtil.fetchSpeeches({page: page});
       this.setState({active_page: page});
