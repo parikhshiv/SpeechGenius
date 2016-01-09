@@ -39,7 +39,7 @@ var SpeechPagination = React.createClass({
             };
             return (
               <div key={el} className={"pages" + active}
-              onClick={this.setPage.bind(this, event, el)}>
+              onClick={this.setPage.bind(this, null, el)}>
                 {el}
               </div>
             );

@@ -5,7 +5,6 @@ var StartReact = function () {
     var IndexRoute = ReactRouter.IndexRoute;
 
     var rootEl = document.getElementById('container');
-
     var App = React.createClass({
       render: function () {
         return (
