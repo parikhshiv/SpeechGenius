@@ -19,12 +19,18 @@ var SpeechSearch = React.createClass({
     SpeechStore.clearFilteredSpeeches();
     this.setState({search: "", filteredSpeeches: SpeechStore.allFilteredSpeeches()});
   },
+  tabDown: function (e) {
+    if (e.keyCode === 40) {
+      e.preventDefault();
+      $("div.search-result-item:first-child").focus();
+    }
+  },
   render: function () {
     return (
       <div className="speech-search">
         <input placeholder={"Search Speeches..."} type="text"
         value={this.state.search} onChange={this.handleInput}
-        onKeyDown={this.handleKeyDown}/>
+        onKeyDown={this.tabDown} id="search-bar"/>
         <span className="search-icon">🔍</span>
         <SearchResults speeches={this.state.filteredSpeeches} resetSearch={this.resetSearch}/>
       </div>
