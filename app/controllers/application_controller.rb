@@ -21,6 +21,6 @@ class ApplicationController < ActionController::Base
   end
 
   def require_no_current_user!
-    redirect_to home_url if current_user
+    redirect_to root_url if current_user
   end
 end

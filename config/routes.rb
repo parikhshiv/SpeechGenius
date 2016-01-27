@@ -10,7 +10,5 @@ Rails.application.routes.draw do
     resources :annotations, :only => [:new, :create, :show, :index, :destroy, :update]
   end
 
-  root :to => "users#new"
-
-  get '/home', to: "static_pages#home"
+  root :to => "static_pages#home"
 end

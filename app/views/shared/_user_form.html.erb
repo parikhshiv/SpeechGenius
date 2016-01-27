@@ -2,6 +2,15 @@
 <% button_text = (type == :newuser) ? "Sign Up" : "Sign In" %>
 <% header = (type == :newuser) ? "Sign Up" : "Sign In" %>
 
+<header class="auth">
+    <h1 class="home-page">speechgenius</h1>
+</header>
+<header class="header-2">
+  <%= link_to "Sign Up Here", new_user_url, {class: "new-speech"}%>
+  <%= link_to "All Speeches", root_url, {class: "new-speech"}%>
+  <%= link_to "Log In Here", new_session_url,{class: "new-speech"} %>
+</header>
+
 <div class="auth-form">
   <h2><%= header %></h2>
   <form action="<%= action %>" method="POST">
@@ -28,3 +37,20 @@
     <input type="submit" class="guest-submit" value="Guest Login!">
   </form>
 </div>
+
+<% if flash[:errors] && !current_user %>
+  <div class="errors">
+    <% flash[:errors].each do |msg| %>
+      <p><b><%= msg %></b></p>
+    <% end %>
+  </div>
+<% end %>
+
+<h3 class="welcome"><%= "#{header} to Start Annotating!" %></h3>
+
+<script>
+  $(".home-page").on("click", function (e) {
+    e.preventDefault();
+    document.location = "/";
+  })
+</script>

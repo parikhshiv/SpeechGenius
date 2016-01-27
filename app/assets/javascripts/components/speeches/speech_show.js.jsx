@@ -82,6 +82,10 @@ var SpeechShow = React.createClass({
     this.setState({new: false, link: false});
   },
   handleClick: function () {
+    if (typeof window.CURRENT_USER_ID === "undefined") {
+      document.location = "/session/new";
+      return;
+    };
     var speech = document.getElementById('text');
     var text = speech.innerHTML;
     var array = text.split('');

@@ -5,6 +5,9 @@ var StartReact = function () {
     var IndexRoute = ReactRouter.IndexRoute;
 
     var rootEl = document.getElementById('container');
+    if (rootEl.getAttribute("data")) {
+      window.CURRENT_USER_ID = parseInt(rootEl.getAttribute("data"));
+    }
     var App = React.createClass({
       render: function () {
         return (

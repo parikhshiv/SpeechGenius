@@ -4,7 +4,6 @@ var AnnotationLink = React.createClass({
   },
   render: function () {
     var hidden= (this.props.visible) ? "" : " hidden";
-
     return (
       <div className={"annotation-link" + hidden}>
         <button className="annotation-link"
