@@ -6,6 +6,10 @@ var SpeechForm = React.createClass({
   handleSubmit: function (e) {
     // CHECK FOR MALICIOUS HTML HERE
     e.preventDefault();
+    if (typeof window.CURRENT_USER_ID === "undefined") {
+      document.location = "session/new";
+      return;
+    }
     if (/<[a-z][\s\S]*>/i.test(this.state.content)) {
       alert("NO HTML PLEASE!!!!!!");
       return;
