@@ -6,6 +6,9 @@
 
 SpeechGenius is a full-stack web app built on Ruby on Rails and React.js. SpeechGenius allows users to add, share, and annotate speeches. Annotations are created by simply highlighting speech text and submitting annotation content. Users can also vote on content and comment on speeches and annotations.
 
+## Landing Page
+![Landing Page](https://github.com/parikhshiv/SpeechGenius/blob/master/docs/screenshots/landing.png)
+
 ## Annotation View
 
 ![Landing Page](https://github.com/parikhshiv/SpeechGenius/blob/master/docs/screenshots/annotation_view.png)
