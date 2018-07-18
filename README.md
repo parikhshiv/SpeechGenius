@@ -1,6 +1,6 @@
 ### SpeechGenius
 
-[Live Link](http://speechgenius.xyz)
+[Live Link](http://speech-genius.herokuapp.com/)
 
 ## Summary
 
